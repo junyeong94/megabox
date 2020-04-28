@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var scrWidth=screen.width;
+        // alert(scrWidth);
+        if(scrWidth>=360 && scrWidth<1280){
+            location.replace('mo_web.html');
+        }else if(scrWidth>=1280){
+            location.replace('pc_web.html');
+        }else{
+            document.querySelector('body').innerHTML='<h1>지원하지 않는 브라우저입니다.</h1>';
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
