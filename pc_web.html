@@ -21,23 +21,28 @@
     <!-- swiper -->
     <link rel="stylesheet" href="css/swiper.min.css">
     <script src="js/swiper.min.js"></script>
+    <script src="js/skip.min.js"></script>
+    <script src="js/banner.min.js"></script>
     <script>
         $(function(){
             var swiper = new Swiper('.swiper-container');
-            $('.skip>a').focus(function(){
-                $(this).parent('.skip').css('top','0');
-            });
-            $('.skip>a').focusout(function(){
-                $(this).parent('.skip').css('top','-50px');
-            });
+            
         });
     </script>
     <link rel="stylesheet" href="css/reset.css">
     <title>라이프시어터,메가박스</title>
     <style>
-        .skip{position: absolute;top:-50px;width:100%;height:50px;display:flex;justify-content:center;align-items: center;background:#25096b;}
+        .skip{position: absolute;top:-50px;width:100%;height:50px;display:flex;justify-content:center;align-items: center;background:#25096b; z-index:1;}
         .skip a{font-size:14px;border:2px solid transparent ;padding:4px 10px; margin:0 5px; color:white;}
         .skip a:focus{border:2px solid white;}
+        /* banner */
+        .banner01{text-align:center; background-color:#4f79a9;}
+        .banner02{text-align:center; background-color:#eee9e3;}
+        .banner img{display: inline-block;}
+        .banner .close{position: absolute;right:0;bottom:0;width:20px; height:20px;border:1px solid black; background:gray; color:white;
+        text-align: center; line-height:18px; cursor: pointer;}
+        .banner>div{display:none; position: relative;}
+        .banner>div.active{display:block;}
     </style>
 </head>
 <body>
@@ -46,7 +51,16 @@
         <a href="#footer">푸터 바로가기</a>
     </div>
     <div class="wrap">
-
+        <div class="banner ">
+            <div class="banner01">
+                <img src="images/ad01.jpg" alt="ad01">
+                <div class="close">X</div>
+            </div>
+            <div class="banner02">
+                <img src="images/ad02.jpg" alt="ad02">
+                <div class="close">X</div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
