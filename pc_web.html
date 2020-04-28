@@ -12,9 +12,41 @@
     <!-- 링크공유-->
     <meta property="og:title" content="메가박스"> 
     <meta property="og:url" content="https://njumi6627.github.io/megabox"> 
-    <title>메가박스</title>
+    <meta property="og:image" content="images/app_icon.png">
+    <meta property="og:description" content="최고의 감동 메가박스와 함께 하세요.">
+    <!-- 파비콘  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- jquery -->
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <!-- swiper -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
+    <script>
+        $(function(){
+            var swiper = new Swiper('.swiper-container');
+            $('.skip>a').focus(function(){
+                $(this).parent('.skip').css('top','0');
+            });
+            $('.skip>a').focusout(function(){
+                $(this).parent('.skip').css('top','-50px');
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="css/reset.css">
+    <title>라이프시어터,메가박스</title>
+    <style>
+        .skip{position: absolute;top:-50px;width:100%;height:50px;display:flex;justify-content:center;align-items: center;background:#25096b;}
+        .skip a{font-size:14px;border:2px solid transparent ;padding:4px 10px; margin:0 5px; color:white;}
+        .skip a:focus{border:2px solid white;}
+    </style>
 </head>
 <body>
-    pc버젼
+    <div class="skip clearfix">
+        <a href="#section">본문 바로가기</a>
+        <a href="#footer">푸터 바로가기</a>
+    </div>
+    <div class="wrap">
+
+    </div>
 </body>
 </html>

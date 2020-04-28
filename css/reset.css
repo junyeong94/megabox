@@ -1,0 +1,17 @@
+@charset 'utf-8';
+
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=korean');
+/* font-family: 'Roboto', sans-serif; 영문*/
+/* font-family: 'Noto Sans KR', sans-serif; 한글 */
+body{font-family: 'Noto Sans KR', sans-serif; line-height:1;}
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,ul,li,ol,span,section,header,aside,footer,nav,img,article,
+input,select,option,button,label,address,figure,form,hr,strong,figcaption{margin:0; border:none; padding:0; }
+span,input,label,select,img,a,button{display:block;}
+ul,li,ol{list-style:none;}
+a{text-decoration:none; color: black; outline:none;} 
+img{vertical-align:top;}
+/* 영문글꼴 클래스 */
+.eng{font-family:'Roboto', sans-serif;}
+input,select,textarea,button{vertical-align:top; border:1px solid #999;}
+.clearfix::after{content:''; display: block; clear: both;}
