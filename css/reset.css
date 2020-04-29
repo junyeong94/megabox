@@ -8,7 +8,7 @@ body{font-family: 'Noto Sans KR', sans-serif; line-height:1;}
 html,body,div,span,h1,h2,h3,h4,h5,h6,p,ul,li,ol,span,section,header,aside,footer,nav,img,article,
 input,select,option,button,label,address,figure,form,hr,strong,figcaption{margin:0; border:none; padding:0; }
 span,input,label,select,img,a,button{display:block;}
-ul,li,ol{list-style:none;}
+ul,ol,li{list-style:none;}
 a{text-decoration:none; color: black; outline:none;} 
 img{vertical-align:top;}
 /* 영문글꼴 클래스 */
