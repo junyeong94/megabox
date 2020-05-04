@@ -1,4 +1,4 @@
-$(function(){
+function banner(){
     // close banner
     $('.close').click(function(){
         $('.banner>div').hide();
@@ -11,4 +11,4 @@ $(function(){
     }else{
         $('.banner01').addClass('active');
     }
-});
+}

@@ -1,4 +1,4 @@
-$(function(){
+function sitemap(){
 $('#sitemap_btn').click(function(){
     $('.sitemap').toggle();
     var cnt=$('#sitemap_btn');
@@ -8,4 +8,4 @@ $('#sitemap_btn').click(function(){
         cnt.attr('src','images/hamburger01.png');
     }
 });
-});
+}
