@@ -24,6 +24,7 @@
   <script src="js/jquery.cookie.js"></script>
 
   <!-- my script -->
+  <script src="js/main.js"></script>
   <script src="js/skip.min.js"></script>
   <script src="js/banner.min.js"></script>
   <script src="js/pop_up_cookie.min.js"></script>
@@ -32,810 +33,26 @@
   <script src="js/sub_position.min.js"></script>
   <script src="js/user_slider.min.js"></script>
   
-  <script>
-    $(function(){
-      skip();
-      banner();
-      login();
-      popup();
-      sitemap();
-      subPosition();
-      $(window).resize(function(){
-        subPosition();
-      })
 
-      // swiper
-      var swiper = new Swiper('.swiper-container',{
-        slidesPerView:3.5,
-        spaceBetween: 40,
-        loop:true,       
-      });
-
-
-      $('.git_hub').click(function(){
-        location.href='https://github.com/pam7462/megabox';
-      });
-
-      var cnt=0;
-      $('#prev').click(function(){
-        if(cnt>0){
-          cnt--;
-        }else{
-          cnt=3;
-        }       
-        userSlide(cnt);
-      })
-      $('#next').click(function(){
-        if(cnt<3){
-          cnt++;
-        }else{
-          cnt=0;
-        }
-        userSlide(cnt);
-      })
-    })
-  </script>
   <link rel="stylesheet" href="css/reset.css">
 
   <title>라이프시어터,메가박스</title>
 
-    <!-- 헤더 -->
-  <style>
-    .skip{
-      width:100%;
-      max-width:2000px;
-      margin:0 auto;
-      height:50px;
-      display:flex;
-      justify-content:center;
-      align-items: center;
-      background-color:#330a94;
-      position:absolute;
-      top:-50px;
-      z-index:1;
-    }
-    .skip a{
-      margin:0 5px;
-      border:2px solid transparent;
-      padding:4px 10px;
-      color:white;
-      font-weight:bold;
-    }
-    .skip a:focus{
-      border:2px solid white;
-    }
-
-    /* login_form */
-    .login_form{
-      position:fixed;
-      left:0;
-      top:0;
-      z-index:3;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.8);
-      display:none;
-    }
-    .login_form .content{
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%);
-      width:500px;
-      height:420px;
-      background:white;
-    }
-
-    .login_form  .login_tit{
-      padding:12px 24px;
-      background-color:#330a94;
-    }
-    .login_form .login_tit p{
-      float:left;
-      font-size:18px;
-      color:white
-    }
-    .login_form .login_tit img{
-      float:right;
-      cursor:pointer;
-    }
-    .login_form form{
-      padding:12px 24px;
-    }
-    .login_form form .id_pass{
-      box-sizing:border-box;
-      width:100%;
-      margin:20px 0;
-      border:1px solid #999;
-      padding:12px;
-      font-weight:bold;
-      color:#330a94;
-    }
-    .login_form form .id_pass:hover{
-      border:1px solid #333;
-    }
-    .login_form form .id_pass::placeholder{
-      font-weight:bold;
-      color:#330a94;
-    }
-    .login_form form input[type="checkbox"],
-    .login_form form label{
-      display:inline-block;
-      margin-bottom:16px;
-    }
-    .login_form form input[type="button"]{
-      width:100%;
-      border-radius:2px;
-      padding:12px;
-      background-color:#330a94;
-      color:white;
-      font-weight:bold;
-      font-size:20px;
-      cursor:pointer;
-    }
-    .login_form .login_menu{
-      padding:12px 20px;
-      display:flex;
-      flex-flow:row nowrap;
-      justify-content:center;
-    }
-    .login_form .login_menu li{
-      margin:0 10px;
-    }
-    .login_form .login_menu li a{
-      color:gray;
-    }
-    .login_form .login_menu li a:hover{
-      text-decoration:underline;
-    }
-
-    .login_form .login_menu li:nth-child(2n){
-      width:1px;
-      background-color:gray;
-    }
-    .login_form .sns_login{
-      padding:12px 20px;
-      display:grid;
-      grid-template-columns:auto auto auto auto;
-      grid-column-gap:20px;
-    }
-    .login_form .sns_login li{
-      text-align:center;
-    }
-
-
-
-    /* git_hub */
-    .git_hub{
-      width:150px;
-      padding:5px 0;
-      background:red;
-      transform:rotate(-45deg);
-      position:fixed;
-      left:-30px;
-      top:30px;
-      z-index:5;
-      cursor:pointer;
-    }
-    .git_hub p{
-      padding:3px 0;
-      font-size:12px;
-      color:white;
-      text-align:center;
-      background-color:#fd5252;
-    }
-
-    /* wrap */
-    .wrap{
-      position:relative;
-      width:100%;
-      max-width:2000px;
-      margin:0 auto;
-    }
-    .container{
-      width:1100px;
-      margin:0 auto;
-    }
-
-    /* banner */
-    .banner01{
-      text-align:center;
-      background-color:#eee9e3;
-    }
-    .banner02{
-      text-align:center;
-      background-color:#5580ad;
-    }
-    .banner img{
-      display:inline-block;
-    }
-    .banner .close{
-      width:20px;
-      height:20px;
-      /* border:1px solid black; */
-      background-color:gray;
-      color:white;
-      text-align:center;
-      line-height:20px;
-      cursor:pointer;
-      position:absolute;
-      right:0;
-      bottom:0;
-    }
-    .banner>div{
-      display:none;
-      position:relative;
-    }
-    .banner>div.active{
-      display:block;
-    }
-    .pop_up{
-      position:absolute;
-      left:50%;
-      top:150px;
-      z-index:2;
-      transform:translateX(-50%);
-      box-sizing:border-box;
-      width:400px;
-      height:438px;
-      border-radius:7px;
-      padding-top:30px;
-      background:#ddd;
-      text-align:center;
-      display:none;
-    }
-    .pop_up h3{
-      display:inline-block;
-      width:145px;
-      margin-bottom:20px;
-      padding:14px 0;
-      border-radius:4px;
-      background:#a5a5a5;
-      font-size:20px;
-      color:white;
-    }
-    .pop_up p{
-      font-size:12px;
-      line-height:2;
-    }
-    .pop_up strong{
-      font-size:12px;
-      font-weight:bold;
-    }
-    .pop_up ol{
-      margin:10px 6px;
-    }
-    .pop_up ol,.pop_up li{
-      text-align:left;
-      list-style:decimal inside;
-      text-indent:5px;
-      font-size:12px;
-      padding:5px 0;
-    }
-    .pop_up hr{
-      width:388px;
-      height:2px;
-      background-color:#aeaeae;
-      margin:20px 6px;
-    }
-    .pop_up form{
-      display:flex;
-      justify-content: flex-end;
-      align-items:center;
-      height:60px;
-      padding-right:20px;
-      background-color:#ecf0f4;
-      border-bottom-left-radius:7px;
-      border-bottom-right-radius:7px;
-    }
-    .pop_up form label{margin:0 30px 0 6px;}
-    .pop_up form #close_btn{
-      width:16px;
-      text-align:center;
-      cursor:pointer;
-    }
-
-    .header{
-      background:linear-gradient(145deg,#0c0908 10%,#161d2b 60%,#2b1f22 90%);
-      position:relative;
-    }
-
-    .header>.container>.content{
-      height:90px;
-      display:flex;
-      flex-flow:row nowrap;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .top_nav,.bottom_nav{
-      display:flex;
-      flex-flow:row nowrap;
-    }
-    .top_nav{
-      margin-bottom:20px;
-    }
-    .nav02 .top_nav{
-      justify-content:flex-end;
-    }
-    .nav01 .top_nav>li{
-      margin-right:20px;
-    }
-    .nav02 .top_nav>li{
-      margin-left:20px;
-    }
-    .nav01 .bottom_nav>li{
-      margin-right:60px;
-    }
-    .nav01 .bottom_nav>li:first-child{
-      margin-right:18px;
-    }
-
-    .nav02 .bottom_nav>li{
-      margin-left:60px;
-    }
-    .nav02 .bottom_nav>li:last-child{
-      margin-left:20px;
-    }
-    .nav02 #schedule{
-      margin-top:-7px;
-    }
-    .top_nav a{
-      color:#999;
-    }
-    .top_nav a:hover{
-      text-decoration:underline;      
-    }
-    .bottom_nav a{
-      color:#fff;
-      font-size:20px;
-    }
-
-    .sitemap{
-      width:100%;
-      position:absolute;
-      left:0;
-      top:90px;
-      z-index:4;
-      background-color:#666;
-    }
-    .sitemap .content{
-      padding:50px 0;
-    }
-    .sitemap_menu{
-      display:grid;
-      grid-template-columns: 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515%;
-      grid-column-gap:20px;
-      grid-row-gap:80px;
-    }
-    .sitemap_menu>li:nth-child(6){
-      grid-column:6;
-      grid-row:1 / 3;
-    }
-    .sitemap h2{
-      font-size:24px;
-      font-weight:normal;
-      margin-bottom:20px;
-      color:white;
-    }
-    .sitemap_menu>li>ul>li{
-      margin:20px 0;
-      text-align:center;
-    }
-    .sitemap_menu>li>ul>li>a{
-      font-size:16px;
-      color:#fff;
-      font-weight:100;
-    }
-    .sitemap_menu>li>ul>li>a:hover{
-      text-decoration:underline;
-      color:#330a94;
-    }
-    .genre_tit{
-      border-top:1px solid #999;
-      border-bottom:1px solid #999;
-      padding:12px 0;
-      font-weight:bold;
-      font-size:18px;
-      color:white;
-    }
-    
-    .sub_nav{
-      position:absolute;
-      left:0;
-      bottom:-40px;
-      width:100%;
-      padding:10px;
-      background:rgba(0,0,0,0.5);
-      display:flex;
-    }
-
-    .sitemap,.sub_nav{
-      display:none;
-    }
-    .nav01>.bottom_nav>li>a{
-      padding-bottom:12px;
-    }
-    .nav02>.bottom_nav>li>a{
-      padding-bottom:16px;
-    }
-    .bottom_nav>li:hover>a{
-      border-bottom:2px solid white;
-    }
-    .bottom_nav>li:hover>.sub_nav{
-      display:flex;
-    }
-    .sub_nav{
-      height:20px;
-    }
-    .sub_nav li{
-      padding:0 20px;
-    }
-    .sub_nav a{
-      font-size:16px;
-    }
-    .sub_nav a:hover{
-      text-decoration:underline;
-    }
-    .border_none{
-      border-bottom:none !important;
-    }
-
-    #sitemap_btn{
-      cursor:pointer;
-    }
-
-    
-    .footer{
-      height:300px;
-      background:rgba(0,255,0,0.2);
-    }
-    .container{
-      height:100%;
-    }
-  </style>
-
-    <!-- 무비차트 -->
-  <style>
-    .section{
-      padding:70px 0 120px;
-      background:linear-gradient(145deg,#0c0908 10%,#161d2b 40%,#2b1f22 90%);
-    }
-    .movie_chart h2{
-      text-align:center;
-      margin-bottom:30px;
-    }
-    .movie_chart h2 a{
-      border-bottom:1px solid white;
-      padding-bottom:5px;
-      font-weight:normal;
-      font-size:15px;
-      color:white;
-    }
-    .poster{
-      overflow:hidden;
-      position:relative;
-      border-radius:5px;
-      margin-bottom:8px;
-    }
-    .poster>img{
-      width:100%;
-    }
-    .poster>.poster_number{
-      position:absolute;
-      left:20px;
-      top:20px;
-      font-size:36px;
-      color:white;
-      text-shadow:2px 2px 3px black;
-    }
-    .poster>.poster_txt{
-      position:absolute;
-      left:0;
-      top:0;
-      right:0;
-      bottom:0;
-      padding:20px;
-      background:rgba(0,0,0,0.8);
-      color:white;
-      opacity:0;
-      transition:0.2s;
-    }
-    .poster:hover>.poster_txt{
-      opacity:1;
-    }
-    .poster>.poster_txt>p{
-      line-height:20px;
-    }
-    .poster>.poster_txt>p:first-child{
-      height:80%;
-      border-bottom:2px solid rgba(255,255,255,0.5);
-    }
-    .poster>.poster_txt>p:last-child{
-      height:20%;
-      padding:0 50px;
-      display:flex;
-      justify-content:space-around;
-      align-items: center;
-    }
-    .poster>.poster_txt>p:last-child>span{
-      font-weight:500;
-      font-size:24px;
-      color:#0b9ebb;
-    }
-    .poster_btn{
-      color:white;
-    }
-    .poster_btn>div:first-child{
-      float:left;
-      display:flex;
-      justify-content:space-between;
-      box-sizing:border-box;
-      width:32%;
-      border:1px solid #555;
-      border-radius:5px;
-      padding:8px 15px;
-      background:#0c0a0a;
-      cursor: pointer;
-    }
-    .poster_btn>div:first-child>span{
-      text-indent:-9999px;
-      width:18px;
-      height:15px;
-      background-image:url('images/ico-set.png');
-    }
-    .poster_btn>div:last-child{
-      float:right;
-      box-sizing: border-box;
-      width:65%;
-      border-radius:5px;
-      padding:9px;
-      text-align:center;
-      background:#037b94;
-      cursor: pointer;
-    }
-    .swiper-container{
-      margin-bottom:50px;
-    }
-    .quick_movie_menu{
-      display:flex;
-      align-items:center;
-      height:80px;
-      background:rgba(0,0,0,0.5);
-    }
-    .quick_movie_menu>li{
-      flex:1;
-      display:flex;
-      justify-content:center;
-      border-right:1px solid rgba(255,255,255,0.5);
-    }
-    .quick_movie_menu>li:last-child{
-      border-right:none;
-    }
-    .quick_movie_menu>li>a{
-      padding:5px 0 5px 30px;
-      font-size:16px;
-      color:white;
-      background-repeat:no-repeat;
-      background-position:left;
-    }
-    .quick_movie_menu>li>a:hover{
-      text-decoration:underline;
-    }
-    .quick_movie_menu>li:nth-child(2)>a{
-      background-image:url('images/ico-schedule-main.png');
-    }
-    .quick_movie_menu>li:nth-child(3)>a{
-      background-image:url('images/ico-boxoffice-main.png');
-    }
-    .quick_movie_menu>li:nth-child(4)>a{
-      padding-left:36px;
-      background-image:url('images/ico-quick-reserve-main.png');
-    }
-
-    .quick_movie_menu>li>input{
-      background-color:transparent;
-      background-image:url('images/ico-search-white.png');
-      background-repeat:no-repeat;
-      background-position:right;
-      border:none;
-      border-bottom:1px solid rgba(255,255,255,0.5);
-      padding:5px 30px 5px 0;
-      color:white;
-    }
-    .mouse_ani{
-      position:relative;
-    }
-    .mouse_ani>img{
-      position:absolute;
-      top:30px;
-      left:50%;
-      transform:translateX(-50%);
-      animation:mmove 2s infinite ease-in-out;
-      animation-delay:2s;
-    }
-    @keyframes mmove{
-      0%{top:30px;}
-      40%{top:50px;}
-      60%{top:50px;}
-      100%{top:30px;}
-    }
-  </style>
+  <!-- 헤더 -->
+  <link rel="stylesheet" href="css/header.css">
+  <!-- 무비차트 -->
+  <link rel="stylesheet" href="css/movie_chart.css">
   <!-- 혜택 -->
-  <style>
-    .bonus{
-      box-sizing:border-box;
-      height:1150px;
-      padding-top:50px;
-      background-image:url('images/bonus_bg.jpg');
-    }
-    .bonus h3{
-      font-weight:normal;
-      font-size:28px;
-      color:#330a94;
-    }
-    .grid_par{
-      display:grid;
-      grid-template-columns:auto auto auto auto auto auto auto auto auto auto auto auto;
-      grid-column-gap:24px;
-    }
-    /* .grid_par>div{
-      background:red;
-    } */
-    .grid_par>div:nth-child(1){
-      grid-column:1/4;
-    }
-    .grid_par>div:nth-child(2){
-      grid-column:4/8;
-    }
-    .grid_par>div:nth-child(3){
-      grid-column:8/13;
-      grid-row:1/3;
-    }
-    .grid_par>div:nth-child(4){
-      grid-column:1/6;
-    }
-    .grid_par>div:nth-child(5){
-      grid-column:6/8;
-    }
-    #grid_child01,#grid_child02{
-      overflow:hidden;
-      position: relative;
-      height:325px;
-    }
-    #grid_child01>div,#grid_child02>div{
-      position:absolute;
-      left:0;
-      top:100%;
-      opacity:0;
-      transition:0.8s;
-    }
-    #grid_child02>div{
-      left:100%;
-      top:0;
-    }
-    #grid_child02>div.active{
-      left:0;
-      opacity:1;
-    }
-    #grid_child01>div.active{
-      top:0;
-      opacity:1;
-    }
-    #grid_child01>ul{
-      width:100%;
-      position:absolute;
-      bottom:20px;
-      display:flex;
-      flex-flow:row nowrap;
-      justify-content:space-between;
-    }
-    #grid_child01 span{
-      color:#330a94;
-    }
-    #img_btn span{
-      font-weight:bolder;
-      font-size:20px;
-      color:gray;
-      cursor:pointer;
-    }
-    #img_btn span:hover{
-      color:#330a94;
-    }
-    #img_bar{
-      padding-top:8px;
-    }
-    .img_bar_par{
-      width:160px;
-      height:2px;
-      background:#eee;
-      display:flex;
-    }
-    .img_bar_par>div{
-      text-indent:-9999px;
-      flex:1;
-      height:2px;      
-    }
-    .img_bar_par>div.active{
-      background:#330a94;
-    }
-    #img_btn,#img_num{
-      display:flex;
-      justify-content:center;
-    }
-    #img_num{
-      padding-top:3px;
-    }
-    #grid_child03,#grid_child04,#grid_child05{
-      overflow:hidden;
-      border-radius:5px;
-    }
-    #grid_child03>img{
-      height:100%;
-    }
-    .ico_par{border-bottom:1px solid rgba(255,255,255,0.3); padding:50px 0; }
-    .ico_par>li{float:left; width:20%; }
-    .ico_par>li>a{height:70px;display: flex; flex-flow:column nowrap; justify-content:space-between; 
-      align-items:center; color:white;}
-    .ico_par>li>a>p{font-size:16px;}
-    img[src*="-bonus01"],img[src*="-bonus03"]{margin-top:-4px;}
-    img[src*="-bonus02"]{margin-top:6px;}
-    .grand_open{padding:50px 0;}
-    .grand_txt>h3{padding:20px 0; color:white;}
-    .grand_txt>hr{width:30px; height:2px; background: white;}
-    .grand_txt,.grand_img{float:left; margin-right: 300px; color: white;}
-    .grand_img{position: relative; width:220px; height: 220px; border-radius:50%; overflow: hidden;;}
-    .grand_img>div:nth-child(1){position: absolute; left:50%; top:50%;transform: translate(-50%,-50%);z-index:1;}
-    .grand_img>div:nth-child(2){position: absolute; left:0; top:0; z-index:2; width:100%; height:100%; background:white; opacity:0; transition: 0.1s;}
-    .grand_img:hover>div:nth-child(2){opacity:1;}
-    .grand_img>div:nth-child(3){position: absolute; left:0; top:0; z-index:3; width:100%; height:100%; 
-      display:flex; flex-flow:column nowrap; justify-content: center; align-items: center;}
-    .open_tit{padding:5px 10px; background-color: #0b9e9b;margin-bottom:10px;}
-    .open_sec1{margin-bottom: 16px;}
-    .grand_img:hover .open_sec1{color:#0b9e9b;}
-    .open_sec2{margin-bottom: 16px; font-size:24px; font-weight:bolder;}
-    .grand_img:hover .open_sec2{color:#0b9e9b;}
-    .grand_img:hover .open_date{color:#0b9e9b;}
-  </style>
+  <link rel="stylesheet" href="css/bonus.css">
   <!-- 큐레이션 -->
-  <style>
-    .curation{background-color:#252451; padding:50px 0;}
-    .curation .tit{display:flex; justify-content: space-between;}
-    .curation .tit h2{color: white; font-weight:normal;font-size: 28px;}
-    .curation .tit p{color:rgba(255,255,255,0.6); display: flex; width:120px; justify-content:space-between; cursor: pointer;}
-    .curation .tit p:hover span:first-child{text-decoration: underline;}
-    .curation .tit p span:last-child{font-size: 30px; margin-top:-9px; }
-    .curation_content{padding:30px 0;display:grid; grid-template-columns:320px auto; grid-column-gap: 50px;}
-    .curation_left{position: relative; text-align: right;}
-    .curation_left .left_img,.curation_left .left_btn{display:inline-block;}
-    .curation_left .left_img{border-radius:10px; overflow: hidden;}
-    .curation_left .left_btn{width:90%; padding:10px 0;}
-    .curation_left .left_btn p{width:45%; float:left; padding:15px 0;border:1px solid white;border-radius:5px;text-align: center;
-      color:white; font-size:20px; cursor: pointer;}
-    .curation_left .left_btn p:nth-child(2){float: right; border-color:#0b9e9b; background:#0b9ebb;}
-    .left_over{position: absolute; left:0; top:-10px;}
-    .left_over_txt{width:105px;height:77px;box-sizing:border-box;background:#da3f31;text-align: left; 
-    padding:10px 0 0 12px; color:white;} 
-    .left_over_txt h4{font-size:16px; line-height: 20px;}
-    .left_over_base{width:0; height:0; border-top:19px solid #da3f31; border-right: 53px solid transparent;
-    border-bottom:19px solid transparent; border-left:53px solid #da3f31; }
-    .curation_right{color:white; }
-    .curation_right h3{font-size:22px; font-weight: normal; margin-bottom:10px;}
-    .curation_right h2{font-size:32px; font-weight: normal; }
-    .curation_right hr{width:100%; height:1px; margin:50px 0 30px;background:rgba(255,255,255,0.5);}
-    .curation_right>p{margin-bottom:20px; line-height:20px;} 
-    .curation_poster{display: flex; justify-content: space-between; margin-top:70px 0 30px;}
-    .curation_poster li{position: relative;}
-    .curation_poster_img{border-radius:5px;overflow: hidden; margin-bottom:6px;}
-    .curation_poster_txt{text-align: center;}
-    .curation_poster_over{position: absolute;top:-4px;left:10px;}
-    .curation_poster_over>p:first-child{width:30px; height:30px;font-size: 20px; text-align: center; line-height:30px;}
-    .f_color{background-color:#da3f31;}
-    .c_color{background-color:#32627f;}
-    .curation_poster_over>p:last-child{width:0; height:0; border-top:4px solid #da3f31; border-bottom:4px solid transparent; 
-    border-right:15px solid transparent; border-left: 15px solid #da3f31;}
-    .curation_poster_over>p:last-child.c_border{border-top-color:#32627f;border-left-color:#32627f;}
-  </style>
+  <link rel="stylesheet" href="css/curation.css">
+  <!-- 메가박스 인포 -->
+  <link rel="stylesheet" href="css/mega_info.css">
+  <!-- 아래배너 -->
+  <link rel="stylesheet" href="css/banner.css">
+  <!-- 푸터 -->
+  <link rel="stylesheet" href="css/footer.css">
+
 </head>
 <body>
   <!-- skip -->
@@ -1635,10 +852,194 @@
         </div>
       </div>
     </section>
+    <section class="megabox_info">
+      <article>
+        <div class="container">
+          <div class="content">
+            <h2>메가박스 안내</h2>
+            <ul class="megabox_info_img">
+              <li><a href="#">
+                <img src="images/megainfo00.png" alt="info00">
+              </a></li>
+              <li><a href="#">
+                <img src="images/megainfo01.png" alt="info01">
+              </a></li>
+              <li><a href="#">
+                <img src="images/megainfo02.png" alt="info02">
+              </a></li>
+              <li><a href="#">
+                <img src="images/megainfo03.png" alt="info03">
+              </a></li>
+              <li><a href="#">
+                <img src="images/megainfo04.png" alt="info04">
+              </a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article>
+        <div class="container">
+          <div class="content">
+            <ul class="notice">
+              <li>
+                <p>지점</p>
+              </li>
+              <li class="clearfix">
+                <p style="float:left;">
+                  <span class="notice_color">[일산벨라시티]</span>
+                  <span><a href="#">5월 방역작업에 따른 정기 휴점안내</a></span>
+                </p>
+                <p style="float:right;" class="notice_date">2020.05.06</p>
+              </li>
+              <li>
+                <a href="#">더보기 ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article>
+        <div class="container">
+          <div class="content">
+            <ul class="megabox_info_quicknav">
+              <li>
+                <a href="#">
+                  <img src="images/ico-info00.png" alt="인포아이콘00">
+                  <p>고객센터</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/ico-info01.png" alt="인포아이콘01">
+                  <p>자주 묻는 질문</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/ico-info02.png" alt="인포아이콘02">
+                  <p>1:1문의</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/ico-info03.png" alt="인포아이콘03">
+                  <p>단체/대관문의</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/ico-info04.png" alt="인포아이콘04">
+                  <p>분실물문의/접수</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/ico-info05.png" alt="인포아이콘05">
+                  <p>더 부티크 프라이빗<br>
+                    대관예매</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+    <div class="bottom_banner">
+      <img src="images/footer_banner00.jpg" alt="ad">
+    </div>
     <footer class="footer">
-      <div class="container"></div>
+      <div class="container clearfix">
+        <div class="footer_left" style="float:left;">
+          <ul class="footer_nav">
+            <li>
+              <a href="#" title="회사소개 페이지로 이동">
+                회사소개
+              </a>
+            </li>
+            <li>
+              <a href="#" title="인재채용 페이지로 이동">
+                인재채용
+              </a>
+            </li>
+            <li>
+              <a href="#" title="사회공헌 페이지로 이동">
+                사회공헌
+              </a>
+            </li>
+            <li>
+              <a href="#" title="제휴/광고/부대사업문의 페이지로 이동">
+                제휴/광고/부대사업문의
+              </a>
+            </li>
+            <li>
+              <a href="#" title="이용약관 페이지로 이동">
+                이용약관
+              </a>
+            </li>
+            <li>
+              <a href="#" title="개인정보처리방침 페이지로 이동">
+                <strong>개인정보처리방침</strong>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="윤리경영 페이지로 이동">
+                윤리경영
+              </a>
+            </li>
+          </ul>
+          <div class="footer_bottom">
+            <div class="footer_logo">
+              <img src="images/logo-opacity.png" alt="logo">
+            </div>
+            <address>
+              <p>
+                서울특별시 성동구 왕십리로 50, 6층(성수동 1가, 메가박스스퀘어) ARS 1544-0070<br>
+                대표자명 김진선 · 개인정보보호책임자 조상연 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 제 833호<br>
+                COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved
+              </p>
+            </address>
+          </div>
+        </div>
+        <div class="footer_right" style="float:right;">
+          <div class="footer_search">
+            <a href="#">
+              <img src="images/ico-search-white.png" alt="서치아이콘">
+              극장찾기
+            </a>
+          </div>
+        <ul class="footer_sns">
+          <li>
+            <a href="#" title="MEGABOX 트위터 페이지로 이동">
+              <img src="images/ico-footer00.png" alt="twiter">
+            </a>
+          </li>
+          <li>
+            <a href="#" title="MEGABOX 페이스북 페이지로 이동">
+              <img src="images/ico-footer01.png" alt="facebook">
+            </a>
+          </li>
+          <li>
+            <a href="#" title="MEGABOX 인스타 페이지로 이동">
+              <img src="images/ico-footer02.png" alt="insta">
+            </a>
+          </li>
+          <li>
+            <a href="#" title="MEGABOX 구글플레이 페이지로 이동">
+              <img src="images/ico-footer03.png" alt="playstore">
+            </a>
+          </li>
+          <li>
+            <a href="#" title="MEGABOX 앱스토어 페이지로 이동">
+              <img src="images/ico-footer04.png" alt="appstore">
+            </a>
+          </li>
+        </ul>
+        </div>
+      </div>
     </footer>
   </div>
-
 </body>
+<script>
+    main();
+</script>
 </html>
