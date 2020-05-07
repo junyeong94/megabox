@@ -3,9 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <!-- 제작자 -->
+  <meta name="author" content="hong">
+  <!-- 설명 -->
+  <meta name="description" content="메가박스 사이트입니다.">
+  <!-- 키워드 -->
+  <meta name="keywords" content="메가박스, megabox, 영화, movie">
+  <!-- 링크공유 -->
+  <meta property="og:title" content="메가박스">
+  <meta property="og:url" content="https://junyeong94.github.io/megabox">
+  <meta property="og:image" content="images/ogimage.png">
+  <meta property="og:description" content="최고의 감동 메가박스와 함께 하세요">
+  <!-- 파비콘 -->
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <!-- jquery -->
+  <script src="../js/jquery-3.5.0.min.js"></script>
+  <!-- swiper -->
+  <link rel="stylesheet" href="../css/swiper.min.css">
+  <script src="../js/jquery-3.5.0.min.js"></script>
+  <!-- reset -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <script>
+    $(function(){
+      $('#ticket_btn,#alarm_btn').click(function(){
+        var conFirm=confirm('로그인 후 사용가능합니다.\n로그인 하시겠습니까?');
+        if(conFirm){
+          // 로그인 폼보기
+          alert('아직 로그인폼이 만들어지지 않았습니다.');
+        }
+      });
+      $(window).scroll(function(){
+        var scrTop=$(window).scrollTop();
+        console.log(scrTop);
+        if(scrTop>30){
+          $('.static_top').css('background-color','rgba(0,0,0,0.8)');
+        }else{
+          $('.static_top').css('background-color','rgba(0,0,0,0)');
+        }
+        
+      });
+    });
+  </script>
+
+  <style>
+    .static_top,.static_bottom{position: fixed; left:0; z-index:9999;display:flex; justify-content: space-between; width:100%;
+    box-sizing:border-box; padding:16px;}
+    .static_top{top:0; padding-bottom:3px; transition:0.1s;}
+    .static_top>li:nth-child(1){width:30px;}
+    .static_top>li:nth-child(1) img{width:100%;}
+    .static_top>li:nth-child(2){width:120px; margin-top:-12px;}
+    .static_top>li:nth-child(2) img{width:100%;}
+    .static_top>li:nth-child(3){width:120px; text-align:right;}
+    .static_top>li:nth-child(3) img{width:30px;}
+    .static_bottom{bottom:0;}
+    .wrap{height:1000px; background:purple;}
+  </style>
+  <title>라이프 시어터,메가박스</title>
 </head>
 <body>
-  모바일버전
+  <div class="static_menu">
+    <ul class="static_top">
+      <li>
+        <a href="#">
+          <img id="ticket_btn" src="images/ico-ticket.png" alt="ticket">
+        </a>
+      </li>
+      <li>
+        <a href="mobile_web.html">
+          <img src="images/logo-white.png" alt="logo">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img id="alarm_btn" src="images/ico-alarm.png" alt="alarm">
+          <img id="toggle_btn" src="images/ico-burger.png" alt="burger">
+        </a>
+      </li>
+    </ul>
+    <div class="static_bottom">
+      <li>
+        <a href="#">
+          <img src="images/ico-bnb-movie-on.png" alt="movie-on">
+          <img src="images/ico-bnb-movie.png" alt="movie">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/ico-bnb-store.png" alt="store">
+          <img src="images/ico-bnb-store-on.png" alt="store-on">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/ico-bnb-reserve.png" alt="reserve">
+          <img src="images/ico-bnb-reserve-on.png" alt="reserve-on">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/ico-bnb-event.png" alt="event">
+          <img src="images/ico-bnb-event-on.png" alt="event-on">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/ico-bnb-mymega.png" alt="mymega">
+          <img src="images/ico-bnb-mymega-on.png" alt="mymega-on">
+        </a>
+      </li>
+    </div>
+  </div>
+  <div class="wrap">
+
+  </div>
 </body>
 </html>
