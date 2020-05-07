@@ -1,11 +1,11 @@
 function sitemap(){
-$('#sitemap_btn').click(function(){
+  $('#sitemap_btn').click(function(){
     $('.sitemap').toggle();
-    var cnt=$('#sitemap_btn');
-    if(cnt.attr('src')=='images/hamburger01.png'){
-        cnt.attr('src','images/hamburger02.png');
+    var imgSrc=$('#sitemap_btn');
+    if(imgSrc.attr('src')=='images/hamburger.png'){
+      imgSrc.attr('src','images/close.png');
     }else{
-        cnt.attr('src','images/hamburger01.png');
+      imgSrc.attr('src','images/hamburger.png');
     }
-});
+  });
 }

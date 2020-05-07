@@ -1,726 +1,1644 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 제작자 -->
-    <meta name="author" content="Jun">
-    <!-- 설명 -->
-    <meta name="description" content="메가박스 사이트입니다.">
-    <!-- 키워드 -->
-    <meta name="keywords" content="메가박스,megabox,영화,movie"> 
-    <!-- 링크공유-->
-    <meta property="og:title" content="메가박스"> 
-    <meta property="og:url" content="https://njumi6627.github.io/megabox"> 
-    <meta property="og:image" content="images/app_icon.png">
-    <meta property="og:description" content="최고의 감동 메가박스와 함께 하세요.">
-    <!-- 파비콘  -->
-    <link rel="shortcut icon" href="images/favicon.png">
-    <!-- jquery -->
-    <script src="js/jquery-3.5.0.min.js"></script>
-    <link rel="stylesheet" href="css/reset.css">
-    <!-- swiper -->
-    <link rel="stylesheet" href="css/swiper.min.css">
-    <script src="js/swiper.min.js"></script>
-    <script src="js/jquery.cookie.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 제작자 -->
+  <meta name="author" content="hong">
+  <!-- 설명 -->
+  <meta name="description" content="메가박스 사이트입니다.">
+  <!-- 키워드 -->
+  <meta name="keywords" content="메가박스, megabox, 영화, movie">
+  <!-- 링크공유 -->
+  <meta property="og:title" content="메가박스">
+  <meta property="og:url" content="https://pam7462.github.io/megabox">
+  <meta property="og:image" content="images/ogimage.png">
+  <meta property="og:description" content="최고의 감동 메가박스와 함께 하세요">
+  <!-- 파비콘 -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <!-- jQuery   -->
+  <script src="js/jquery-3.5.0.min.js"></script>
+  <!-- swiper -->
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <script src="js/swiper.min.js"></script>
+  <script src="js/jquery.cookie.js"></script>
 
-    <script src="js/skip.min.js"></script>
-    <script src="js/banner.min.js"></script>
-    <script src="js/pop_up_cookie.min.js"></script>
-    <script src="js/login.min.js"></script>
-    <script src="js/sitemap.min.js"></script>
-    <script src="js/sub_position.min.js"></script>
-    <script>
-        $(function(){
-            banner();
-            skip();
-            login();
-            pop_up();
-            sitemap();
-            subPosition();
-            $(window).resize(function(){
-                subPosition();
-            });
-            var swiper = new Swiper('.swiper-container', {
-                slidesPerView: 3.3,
-                spaceBetween: 40,
-                loop:true,
-                autoplay:true,
-                delay:3000,
-                speed:300,
-            });
-            $('.git_hub').click(function(){
-                location.href='https://github.com/junyeong94';
-            });
-        });
-    </script>
-    
-    <title>라이프시어터,메가박스</title>
-    <style>
-        .skip{position: absolute;top:-50px;width:100%;max-width:2000px;margin: 0 auto;height:50px;display:flex;justify-content:center;align-items: center;background:#25096b; z-index:1;}
-        .skip a{font-size:14px;border:2px solid transparent ;padding:4px 10px; margin:0 5px; color:white;}
-        .skip a:focus{border:2px solid white;}
-        
-        /* login form */
-        .login_form{position: fixed;left:0;top:0;width:100%; height: 100%; background:rgba(0,0,0,0.8); z-index:3; display: none;}
-        .login_form .content{position: fixed;left:50%;top:50%; transform: translate(-50%,-50%);
-        width:500px; height:420px; background: white;}
-        .login_form .login_tit{padding:12px 24px; background:#25096b;}
-        .login_form .login_tit p{float: left; font-size:18px; color:white;}
-        .login_form .login_tit img{float:right; cursor: pointer;}
-        .login_form form{padding:12px 24px;}
-        .login_form form .id_pass{box-sizing: border-box; width:100%; margin:20px 0; border: 1px solid #999;padding:12px; color:#25096b;font-weight:bold;}
-        .login_form form .id_pass:hover{border: 1px solid #333;}
-        .login_form form .id_pass::placeholder{color:#25096b;font-weight:bold;}
-        .login_form form input[type="checkbox"],.login_form form label{display: inline-block; margin-bottom:16px;}
-        .login_form form input[type="button"]{width:100%; border-radius:2px;padding:12px;background-color: #25096b; 
-        color:white; font-weight:bold; font-size:20px;cursor: pointer;}
-        .login_form .login_menu{padding:12px 20px; display:flex; flex-flow:row nowrap; justify-content: center;}
-        .login_form .login_menu li{margin:0 10px;}
-        .login_form .login_menu li:hover a{text-decoration: underline;}
-        .login_form .login_menu li a{color:gray;}
-        .login_form .login_menu li:nth-child(2n){background-color:gray; width:1px;}
-        .login_form .sns_login{padding:12px 20px; display:grid; grid-template-columns:auto auto auto auto; grid-column-gap:30px;}
-        .login_form .sns_login li{text-align: center;}
-        /* git hub */
-        .git_hub{width:150px; padding:5px 0;background:navy;  transform:rotate(-45deg);position: fixed;left:-30px;top:30px; z-index:5; cursor: pointer;}
-        .git_hub p{font-size:12px; color:white; text-align: center; background-color:lightblue; }
-        /* wrap */
-        .wrap{position: relative;width:100%; max-width:2000px; margin:0 auto;}
-        .container{width:1100px; margin:0 auto;}
+  <!-- my script -->
+  <script src="js/skip.min.js"></script>
+  <script src="js/banner.min.js"></script>
+  <script src="js/pop_up_cookie.min.js"></script>
+  <script src="js/login.min.js"></script>
+  <script src="js/sitemap.min.js"></script>
+  <script src="js/sub_position.min.js"></script>
+  <script src="js/user_slider.min.js"></script>
+  
+  <script>
+    $(function(){
+      skip();
+      banner();
+      login();
+      popup();
+      sitemap();
+      subPosition();
+      $(window).resize(function(){
+        subPosition();
+      })
 
-        /* banner */
-        .banner01{text-align:center; background-color:#4f79a9;}
-        .banner02{text-align:center; background-color:#eee9e3;}
-        .banner img{display: inline-block;}
-        .banner .close{position: absolute;right:0;bottom:0;width:20px; height:20px;border:1px solid black; background:gray; color:white;
-        text-align: center; line-height:18px; cursor: pointer;}
-        .banner>div{display:none; position: relative;}
-        .banner>div.active{display:block;}
-        /* pop_up */
-        .pop_up{position: absolute;left:50%;top:150px;transform: translateX(-50%); z-index:2;width:400px;height:438px;
-        padding:30px 0;border-radius:7px;box-sizing:border-box;background:white;text-align: center; display: none;}
-        .pop_up>h3{display: inline-block;width:145px;margin-bottom:20px;padding:14px 0;border-radius:6px;background:#a5a5a5;color:white;
-            text-align: center; font-size:20px;}
-        .pop_up p{font-size:12px; line-height:2; }
-        .pop_up strong{font-size:12px; font-weight: bold;}
-        .pop_up ol{margin:10px 6px;}
-        .pop_up ol,.pop_up li{text-align:left; list-style:decimal inside; font-size:12px; padding:5px 0;} 
-        .pop_up hr{width:388px;height:2px; margin:20px auto; background-color:#aeaeae;}
-        .pop_up form{display:flex; justify-content:flex-end; align-items: center;height:60px;padding-right:20px;background:#ecf0f4;border-bottom-left-radius:7px;border-bottom-right-radius:7px;}
-        .pop_up form label{margin:0 30px 0 6px; font-weight:300;}
-        .pop_up form #close_btn{cursor: pointer; width:16px;text-align: center;}
-    
-        .header{position:relative;background:linear-gradient(145deg,#0c0908 10%,#161d2b 60%,#2b1f22 90%);}
-        .header>.container>.content{height:90px;display:flex; flex-flow:row nowrap; justify-content:space-between; align-items: center;}
-        .top_nav,.bottom_nav{display:flex; flex-flow:row nowrap;}
-        .nav01 .top_nav>li{margin-right:20px;}
-        .nav02 .top_nav{justify-content: flex-end;}
-        .nav02 .top_nav>li{margin-left:20px;}
-        .nav01 .bottom_nav>li{margin-right:60px;}
-        .nav01 .bottom_nav>li:first-child{margin-right:18px;}
-        .nav02 .bottom_nav>li{margin-left:60px;}
-        .nav02 .bottom_nav>li:last-child{margin-left:18px;}
-        .nav02 .bottom_nav #schedule{margin-top:-7px;}
-        .top_nav{margin-bottom:20px;}
-        .top_nav a{color:#999;}
-        .top_nav a:hover{text-decoration: underline;}
-        .bottom_nav a{color:#fff; font-size:20px;}
-        .sitemap{width:100%;position:absolute;left:0;top:90px;z-index:4;background:#444;}
-        .sitemap h2{font-size:24px;font-weight:400;margin-bottom:20px;color:white;} 
-        .sitemap .content{padding:50px 0;}
-        .sitemap_menu{display: grid; grid-template-columns: 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515%; grid-column-gap:20px;
-        grid-row-gap:80px;}
-        .sitemap_menu>li>ul>li{margin:20px 0; text-align: center;}
-        .sitemap_menu>li>ul>li>a{font-size:16px; font-weight:100; color:white;}
-        .sitemap_menu>li>ul>li>a:hover{text-decoration: underline; color:#8ccfe4;}
-        .sitemap_menu li:nth-child(6){grid-column:6;grid-row:1 / 3;}
-        .genre_tit{border-top:1px solid #999;border-bottom:1px solid #999; padding:12px 0; font-weight: bold;font-size:18px; color:white}
-        #sitemap_btn{cursor: pointer;}
-        .suv_nav{position: absolute; left:0; bottom:-40px; width:100%;height: 20px;padding:10px;background:rgba(0,0,0,0.5); 
-        display:flex;}
-        .suv_nav li{padding:0 20px;}
-        .suv_nav a{font-size:16px;}
-        .suv_nav a:hover{text-decoration:underline;}
-        .nav01>.bottom_nav>li>a{padding-bottom:11px;}
-        .nav02>.bottom_nav>li>a{padding-bottom:15px;}
-        .bottom_nav>li:hover>a{border-bottom:2px solid white;}
-        .sitemap,.suv_nav{display:none;}
-        .bottom_nav>li:hover>.suv_nav{display: flex;}
-        .border_none{border-bottom:none !important;}
+      // swiper
+      var swiper = new Swiper('.swiper-container',{
+        slidesPerView:3.5,
+        spaceBetween: 40,
+        loop:true,       
+      });
 
-        .footer{height:100px; background: rgba(0,255,0,0.2);}
-        
-    </style>
-    <style>
-        .section{padding:70px 0 120px; background:linear-gradient(145deg,#0c0908 10%,#161d2b 60%,#2b1f22 90%);}
-        .movie_chart h2{text-align: center; margin-bottom:30px;}
-        .movie_chart h2 a{border-bottom:1px solid white;padding-bottom:5px;font-weight: 400;font-size: 16px; color:white;}
-        .poster{overflow: hidden;position: relative; border-radius:5px; margin-bottom:8px;}
-        .poster>img{width:100%;}
-        .poster>.poster_number{position: absolute;left:20px;top:20px; font-size:36px;color:white;
-        text-shadow:2px 2px 3px black;}
-        .poster>.poster_txt{position: absolute;left:0; top:0; right:0; bottom:0; background:rgba(0,0,0,0.8); color: white;
-        padding:20px; opacity:0;transition:0.2s;}
-        .poster:hover>.poster_txt{opacity:1;}
-        .poster>.poster_txt>p{line-height:20px;}
-        .poster>.poster_txt>p:first-child{height:80%; border-bottom:1px solid white;}
-        .poster>.poster_txt>p:last-child{height:20%;padding:0 50px;display:flex; justify-content:space-around; align-items: center;}
-        .poster>.poster_txt>p:last-child>span{font-weight:500;font-size: 24px; color:#037b94;}
-        .poster_btn{color:white;}
-        .poster_btn>div:first-child{float: left; display:flex; width:32%;box-sizing: border-box; border:1px solid #555;
-        padding:8px 22px; background:#0c0a0a;border-radius:5px; align-items: center; justify-content: space-between; cursor: pointer;}
-        .poster_btn>div:first-child>span{text-indent:-9999px;width:18px; height:15px; background:url('images/ico_set.png');}
-        .poster_btn>div:last-child{float:right; width:65%; box-sizing:border-box; padding:9px; text-align: center; cursor: pointer; 
-        background:#037b94; border-radius:5px;}
 
-        .swiper-container{margin-bottom:50px;}
-        .quick_movie_menu{display: flex; align-items: center; height:80px; background:rgba(0,0,0,0.5);}
-        .quick_movie_menu>li{flex:1; display: flex; justify-content:center; border-right:1px solid rgba(255,255,255,0.2);}
-        .quick_movie_menu>li:last-child{border-right:none;}
-        .quick_movie_menu>li>a{padding:5px 0 5px 30px;color:white; font-size:16px;background-repeat:no-repeat; background-position:left;}
-        .quick_movie_menu>li>a:hover{text-decoration:underline;}
-        .quick_movie_menu>li:nth-child(2)>a{background-image:url('images/schedule_main.png');}
-        .quick_movie_menu>li:nth-child(3)>a{background-image:url('images/boxoffice.png');}
-        .quick_movie_menu>li:nth-child(4)>a{background-image:url('images/ticketing.png');padding-left:35px;}
-        .quick_movie_menu>li>input{background-color:transparent; background-image:url('images/search.png');  border:none; 
-        background-repeat:no-repeat; background-position:right;border-bottom:1px solid white; padding:5px 30px 5px 0;}
+      $('.git_hub').click(function(){
+        location.href='https://github.com/pam7462/megabox';
+      });
 
-        .mouse_ani{position: relative;}
-        .mouse_ani>img{position: absolute;top:30px;left:50%;;transform: translateX(-50%);animation:mmove 2s infinite ease-in-out;
-        animation-delay:2s;}
-        @keyframes mmove{
-            0%{top:30px;}
-            40%{top:60px;}
-            60%{top:60px;}
-            100%{top:30px;}
+      var cnt=0;
+      $('#prev').click(function(){
+        if(cnt>0){
+          cnt--;
+        }else{
+          cnt=3;
+        }       
+        userSlide(cnt);
+      })
+      $('#next').click(function(){
+        if(cnt<3){
+          cnt++;
+        }else{
+          cnt=0;
         }
-    </style>
+        userSlide(cnt);
+      })
+    })
+  </script>
+  <link rel="stylesheet" href="css/reset.css">
+
+  <title>라이프시어터,메가박스</title>
+
+    <!-- 헤더 -->
+  <style>
+    .skip{
+      width:100%;
+      max-width:2000px;
+      margin:0 auto;
+      height:50px;
+      display:flex;
+      justify-content:center;
+      align-items: center;
+      background-color:#330a94;
+      position:absolute;
+      top:-50px;
+      z-index:1;
+    }
+    .skip a{
+      margin:0 5px;
+      border:2px solid transparent;
+      padding:4px 10px;
+      color:white;
+      font-weight:bold;
+    }
+    .skip a:focus{
+      border:2px solid white;
+    }
+
+    /* login_form */
+    .login_form{
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:3;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.8);
+      display:none;
+    }
+    .login_form .content{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:500px;
+      height:420px;
+      background:white;
+    }
+
+    .login_form  .login_tit{
+      padding:12px 24px;
+      background-color:#330a94;
+    }
+    .login_form .login_tit p{
+      float:left;
+      font-size:18px;
+      color:white
+    }
+    .login_form .login_tit img{
+      float:right;
+      cursor:pointer;
+    }
+    .login_form form{
+      padding:12px 24px;
+    }
+    .login_form form .id_pass{
+      box-sizing:border-box;
+      width:100%;
+      margin:20px 0;
+      border:1px solid #999;
+      padding:12px;
+      font-weight:bold;
+      color:#330a94;
+    }
+    .login_form form .id_pass:hover{
+      border:1px solid #333;
+    }
+    .login_form form .id_pass::placeholder{
+      font-weight:bold;
+      color:#330a94;
+    }
+    .login_form form input[type="checkbox"],
+    .login_form form label{
+      display:inline-block;
+      margin-bottom:16px;
+    }
+    .login_form form input[type="button"]{
+      width:100%;
+      border-radius:2px;
+      padding:12px;
+      background-color:#330a94;
+      color:white;
+      font-weight:bold;
+      font-size:20px;
+      cursor:pointer;
+    }
+    .login_form .login_menu{
+      padding:12px 20px;
+      display:flex;
+      flex-flow:row nowrap;
+      justify-content:center;
+    }
+    .login_form .login_menu li{
+      margin:0 10px;
+    }
+    .login_form .login_menu li a{
+      color:gray;
+    }
+    .login_form .login_menu li a:hover{
+      text-decoration:underline;
+    }
+
+    .login_form .login_menu li:nth-child(2n){
+      width:1px;
+      background-color:gray;
+    }
+    .login_form .sns_login{
+      padding:12px 20px;
+      display:grid;
+      grid-template-columns:auto auto auto auto;
+      grid-column-gap:20px;
+    }
+    .login_form .sns_login li{
+      text-align:center;
+    }
+
+
+
+    /* git_hub */
+    .git_hub{
+      width:150px;
+      padding:5px 0;
+      background:red;
+      transform:rotate(-45deg);
+      position:fixed;
+      left:-30px;
+      top:30px;
+      z-index:5;
+      cursor:pointer;
+    }
+    .git_hub p{
+      padding:3px 0;
+      font-size:12px;
+      color:white;
+      text-align:center;
+      background-color:#fd5252;
+    }
+
+    /* wrap */
+    .wrap{
+      position:relative;
+      width:100%;
+      max-width:2000px;
+      margin:0 auto;
+    }
+    .container{
+      width:1100px;
+      margin:0 auto;
+    }
+
+    /* banner */
+    .banner01{
+      text-align:center;
+      background-color:#eee9e3;
+    }
+    .banner02{
+      text-align:center;
+      background-color:#5580ad;
+    }
+    .banner img{
+      display:inline-block;
+    }
+    .banner .close{
+      width:20px;
+      height:20px;
+      /* border:1px solid black; */
+      background-color:gray;
+      color:white;
+      text-align:center;
+      line-height:20px;
+      cursor:pointer;
+      position:absolute;
+      right:0;
+      bottom:0;
+    }
+    .banner>div{
+      display:none;
+      position:relative;
+    }
+    .banner>div.active{
+      display:block;
+    }
+    .pop_up{
+      position:absolute;
+      left:50%;
+      top:150px;
+      z-index:2;
+      transform:translateX(-50%);
+      box-sizing:border-box;
+      width:400px;
+      height:438px;
+      border-radius:7px;
+      padding-top:30px;
+      background:#ddd;
+      text-align:center;
+      display:none;
+    }
+    .pop_up h3{
+      display:inline-block;
+      width:145px;
+      margin-bottom:20px;
+      padding:14px 0;
+      border-radius:4px;
+      background:#a5a5a5;
+      font-size:20px;
+      color:white;
+    }
+    .pop_up p{
+      font-size:12px;
+      line-height:2;
+    }
+    .pop_up strong{
+      font-size:12px;
+      font-weight:bold;
+    }
+    .pop_up ol{
+      margin:10px 6px;
+    }
+    .pop_up ol,.pop_up li{
+      text-align:left;
+      list-style:decimal inside;
+      text-indent:5px;
+      font-size:12px;
+      padding:5px 0;
+    }
+    .pop_up hr{
+      width:388px;
+      height:2px;
+      background-color:#aeaeae;
+      margin:20px 6px;
+    }
+    .pop_up form{
+      display:flex;
+      justify-content: flex-end;
+      align-items:center;
+      height:60px;
+      padding-right:20px;
+      background-color:#ecf0f4;
+      border-bottom-left-radius:7px;
+      border-bottom-right-radius:7px;
+    }
+    .pop_up form label{margin:0 30px 0 6px;}
+    .pop_up form #close_btn{
+      width:16px;
+      text-align:center;
+      cursor:pointer;
+    }
+
+    .header{
+      background:linear-gradient(145deg,#0c0908 10%,#161d2b 60%,#2b1f22 90%);
+      position:relative;
+    }
+
+    .header>.container>.content{
+      height:90px;
+      display:flex;
+      flex-flow:row nowrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .top_nav,.bottom_nav{
+      display:flex;
+      flex-flow:row nowrap;
+    }
+    .top_nav{
+      margin-bottom:20px;
+    }
+    .nav02 .top_nav{
+      justify-content:flex-end;
+    }
+    .nav01 .top_nav>li{
+      margin-right:20px;
+    }
+    .nav02 .top_nav>li{
+      margin-left:20px;
+    }
+    .nav01 .bottom_nav>li{
+      margin-right:60px;
+    }
+    .nav01 .bottom_nav>li:first-child{
+      margin-right:18px;
+    }
+
+    .nav02 .bottom_nav>li{
+      margin-left:60px;
+    }
+    .nav02 .bottom_nav>li:last-child{
+      margin-left:20px;
+    }
+    .nav02 #schedule{
+      margin-top:-7px;
+    }
+    .top_nav a{
+      color:#999;
+    }
+    .top_nav a:hover{
+      text-decoration:underline;      
+    }
+    .bottom_nav a{
+      color:#fff;
+      font-size:20px;
+    }
+
+    .sitemap{
+      width:100%;
+      position:absolute;
+      left:0;
+      top:90px;
+      z-index:4;
+      background-color:#666;
+    }
+    .sitemap .content{
+      padding:50px 0;
+    }
+    .sitemap_menu{
+      display:grid;
+      grid-template-columns: 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515% 15.15151515151515%;
+      grid-column-gap:20px;
+      grid-row-gap:80px;
+    }
+    .sitemap_menu>li:nth-child(6){
+      grid-column:6;
+      grid-row:1 / 3;
+    }
+    .sitemap h2{
+      font-size:24px;
+      font-weight:normal;
+      margin-bottom:20px;
+      color:white;
+    }
+    .sitemap_menu>li>ul>li{
+      margin:20px 0;
+      text-align:center;
+    }
+    .sitemap_menu>li>ul>li>a{
+      font-size:16px;
+      color:#fff;
+      font-weight:100;
+    }
+    .sitemap_menu>li>ul>li>a:hover{
+      text-decoration:underline;
+      color:#330a94;
+    }
+    .genre_tit{
+      border-top:1px solid #999;
+      border-bottom:1px solid #999;
+      padding:12px 0;
+      font-weight:bold;
+      font-size:18px;
+      color:white;
+    }
+    
+    .sub_nav{
+      position:absolute;
+      left:0;
+      bottom:-40px;
+      width:100%;
+      padding:10px;
+      background:rgba(0,0,0,0.5);
+      display:flex;
+    }
+
+    .sitemap,.sub_nav{
+      display:none;
+    }
+    .nav01>.bottom_nav>li>a{
+      padding-bottom:12px;
+    }
+    .nav02>.bottom_nav>li>a{
+      padding-bottom:16px;
+    }
+    .bottom_nav>li:hover>a{
+      border-bottom:2px solid white;
+    }
+    .bottom_nav>li:hover>.sub_nav{
+      display:flex;
+    }
+    .sub_nav{
+      height:20px;
+    }
+    .sub_nav li{
+      padding:0 20px;
+    }
+    .sub_nav a{
+      font-size:16px;
+    }
+    .sub_nav a:hover{
+      text-decoration:underline;
+    }
+    .border_none{
+      border-bottom:none !important;
+    }
+
+    #sitemap_btn{
+      cursor:pointer;
+    }
+
+    
+    .footer{
+      height:300px;
+      background:rgba(0,255,0,0.2);
+    }
+    .container{
+      height:100%;
+    }
+  </style>
+
+    <!-- 무비차트 -->
+  <style>
+    .section{
+      padding:70px 0 120px;
+      background:linear-gradient(145deg,#0c0908 10%,#161d2b 40%,#2b1f22 90%);
+    }
+    .movie_chart h2{
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .movie_chart h2 a{
+      border-bottom:1px solid white;
+      padding-bottom:5px;
+      font-weight:normal;
+      font-size:15px;
+      color:white;
+    }
+    .poster{
+      overflow:hidden;
+      position:relative;
+      border-radius:5px;
+      margin-bottom:8px;
+    }
+    .poster>img{
+      width:100%;
+    }
+    .poster>.poster_number{
+      position:absolute;
+      left:20px;
+      top:20px;
+      font-size:36px;
+      color:white;
+      text-shadow:2px 2px 3px black;
+    }
+    .poster>.poster_txt{
+      position:absolute;
+      left:0;
+      top:0;
+      right:0;
+      bottom:0;
+      padding:20px;
+      background:rgba(0,0,0,0.8);
+      color:white;
+      opacity:0;
+      transition:0.2s;
+    }
+    .poster:hover>.poster_txt{
+      opacity:1;
+    }
+    .poster>.poster_txt>p{
+      line-height:20px;
+    }
+    .poster>.poster_txt>p:first-child{
+      height:80%;
+      border-bottom:2px solid rgba(255,255,255,0.5);
+    }
+    .poster>.poster_txt>p:last-child{
+      height:20%;
+      padding:0 50px;
+      display:flex;
+      justify-content:space-around;
+      align-items: center;
+    }
+    .poster>.poster_txt>p:last-child>span{
+      font-weight:500;
+      font-size:24px;
+      color:#0b9ebb;
+    }
+    .poster_btn{
+      color:white;
+    }
+    .poster_btn>div:first-child{
+      float:left;
+      display:flex;
+      justify-content:space-between;
+      box-sizing:border-box;
+      width:32%;
+      border:1px solid #555;
+      border-radius:5px;
+      padding:8px 15px;
+      background:#0c0a0a;
+      cursor: pointer;
+    }
+    .poster_btn>div:first-child>span{
+      text-indent:-9999px;
+      width:18px;
+      height:15px;
+      background-image:url('images/ico-set.png');
+    }
+    .poster_btn>div:last-child{
+      float:right;
+      box-sizing: border-box;
+      width:65%;
+      border-radius:5px;
+      padding:9px;
+      text-align:center;
+      background:#037b94;
+      cursor: pointer;
+    }
+    .swiper-container{
+      margin-bottom:50px;
+    }
+    .quick_movie_menu{
+      display:flex;
+      align-items:center;
+      height:80px;
+      background:rgba(0,0,0,0.5);
+    }
+    .quick_movie_menu>li{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      border-right:1px solid rgba(255,255,255,0.5);
+    }
+    .quick_movie_menu>li:last-child{
+      border-right:none;
+    }
+    .quick_movie_menu>li>a{
+      padding:5px 0 5px 30px;
+      font-size:16px;
+      color:white;
+      background-repeat:no-repeat;
+      background-position:left;
+    }
+    .quick_movie_menu>li>a:hover{
+      text-decoration:underline;
+    }
+    .quick_movie_menu>li:nth-child(2)>a{
+      background-image:url('images/ico-schedule-main.png');
+    }
+    .quick_movie_menu>li:nth-child(3)>a{
+      background-image:url('images/ico-boxoffice-main.png');
+    }
+    .quick_movie_menu>li:nth-child(4)>a{
+      padding-left:36px;
+      background-image:url('images/ico-quick-reserve-main.png');
+    }
+
+    .quick_movie_menu>li>input{
+      background-color:transparent;
+      background-image:url('images/ico-search-white.png');
+      background-repeat:no-repeat;
+      background-position:right;
+      border:none;
+      border-bottom:1px solid rgba(255,255,255,0.5);
+      padding:5px 30px 5px 0;
+      color:white;
+    }
+    .mouse_ani{
+      position:relative;
+    }
+    .mouse_ani>img{
+      position:absolute;
+      top:30px;
+      left:50%;
+      transform:translateX(-50%);
+      animation:mmove 2s infinite ease-in-out;
+      animation-delay:2s;
+    }
+    @keyframes mmove{
+      0%{top:30px;}
+      40%{top:50px;}
+      60%{top:50px;}
+      100%{top:30px;}
+    }
+  </style>
+  <!-- 혜택 -->
+  <style>
+    .bonus{
+      box-sizing:border-box;
+      height:1150px;
+      padding-top:50px;
+      background-image:url('images/bonus_bg.jpg');
+    }
+    .bonus h3{
+      font-weight:normal;
+      font-size:28px;
+      color:#330a94;
+    }
+    .grid_par{
+      display:grid;
+      grid-template-columns:auto auto auto auto auto auto auto auto auto auto auto auto;
+      grid-column-gap:24px;
+    }
+    /* .grid_par>div{
+      background:red;
+    } */
+    .grid_par>div:nth-child(1){
+      grid-column:1/4;
+    }
+    .grid_par>div:nth-child(2){
+      grid-column:4/8;
+    }
+    .grid_par>div:nth-child(3){
+      grid-column:8/13;
+      grid-row:1/3;
+    }
+    .grid_par>div:nth-child(4){
+      grid-column:1/6;
+    }
+    .grid_par>div:nth-child(5){
+      grid-column:6/8;
+    }
+    #grid_child01,#grid_child02{
+      overflow:hidden;
+      position: relative;
+      height:325px;
+    }
+    #grid_child01>div,#grid_child02>div{
+      position:absolute;
+      left:0;
+      top:100%;
+      opacity:0;
+      transition:0.8s;
+    }
+    #grid_child02>div{
+      left:100%;
+      top:0;
+    }
+    #grid_child02>div.active{
+      left:0;
+      opacity:1;
+    }
+    #grid_child01>div.active{
+      top:0;
+      opacity:1;
+    }
+    #grid_child01>ul{
+      width:100%;
+      position:absolute;
+      bottom:20px;
+      display:flex;
+      flex-flow:row nowrap;
+      justify-content:space-between;
+    }
+    #grid_child01 span{
+      color:#330a94;
+    }
+    #img_btn span{
+      font-weight:bolder;
+      font-size:20px;
+      color:gray;
+      cursor:pointer;
+    }
+    #img_btn span:hover{
+      color:#330a94;
+    }
+    #img_bar{
+      padding-top:8px;
+    }
+    .img_bar_par{
+      width:160px;
+      height:2px;
+      background:#eee;
+      display:flex;
+    }
+    .img_bar_par>div{
+      text-indent:-9999px;
+      flex:1;
+      height:2px;      
+    }
+    .img_bar_par>div.active{
+      background:#330a94;
+    }
+    #img_btn,#img_num{
+      display:flex;
+      justify-content:center;
+    }
+    #img_num{
+      padding-top:3px;
+    }
+    #grid_child03,#grid_child04,#grid_child05{
+      overflow:hidden;
+      border-radius:5px;
+    }
+    #grid_child03>img{
+      height:100%;
+    }
+    .ico_par{border-bottom:1px solid rgba(255,255,255,0.3); padding:50px 0; }
+    .ico_par>li{float:left; width:20%; }
+    .ico_par>li>a{height:70px;display: flex; flex-flow:column nowrap; justify-content:space-between; 
+      align-items:center; color:white;}
+    .ico_par>li>a>p{font-size:16px;}
+    img[src*="-bonus01"],img[src*="-bonus03"]{margin-top:-4px;}
+    img[src*="-bonus02"]{margin-top:6px;}
+    .grand_open{padding:50px 0;}
+    .grand_txt>h3{padding:20px 0; color:white;}
+    .grand_txt>hr{width:30px; height:2px; background: white;}
+    .grand_txt,.grand_img{float:left; margin-right: 300px; color: white;}
+    .grand_img{position: relative; width:220px; height: 220px; border-radius:50%; overflow: hidden;;}
+    .grand_img>div:nth-child(1){position: absolute; left:50%; top:50%;transform: translate(-50%,-50%);z-index:1;}
+    .grand_img>div:nth-child(2){position: absolute; left:0; top:0; z-index:2; width:100%; height:100%; background:white; opacity:0; transition: 0.1s;}
+    .grand_img:hover>div:nth-child(2){opacity:1;}
+    .grand_img>div:nth-child(3){position: absolute; left:0; top:0; z-index:3; width:100%; height:100%; 
+      display:flex; flex-flow:column nowrap; justify-content: center; align-items: center;}
+    .open_tit{padding:5px 10px; background-color: #0b9e9b;margin-bottom:10px;}
+    .open_sec1{margin-bottom: 16px;}
+    .grand_img:hover .open_sec1{color:#0b9e9b;}
+    .open_sec2{margin-bottom: 16px; font-size:24px; font-weight:bolder;}
+    .grand_img:hover .open_sec2{color:#0b9e9b;}
+    .grand_img:hover .open_date{color:#0b9e9b;}
+  </style>
+  <!-- 큐레이션 -->
+  <style>
+    .curation{background-color:#252451; padding:50px 0;}
+    .curation .tit{display:flex; justify-content: space-between;}
+    .curation .tit h2{color: white; font-weight:normal;font-size: 28px;}
+    .curation .tit p{color:rgba(255,255,255,0.6); display: flex; width:120px; justify-content:space-between; cursor: pointer;}
+    .curation .tit p:hover span:first-child{text-decoration: underline;}
+    .curation .tit p span:last-child{font-size: 30px; margin-top:-9px; }
+    .curation_content{padding:30px 0;display:grid; grid-template-columns:320px auto; grid-column-gap: 50px;}
+    .curation_left{position: relative; text-align: right;}
+    .curation_left .left_img,.curation_left .left_btn{display:inline-block;}
+    .curation_left .left_img{border-radius:10px; overflow: hidden;}
+    .curation_left .left_btn{width:90%; padding:10px 0;}
+    .curation_left .left_btn p{width:45%; float:left; padding:15px 0;border:1px solid white;border-radius:5px;text-align: center;
+      color:white; font-size:20px; cursor: pointer;}
+    .curation_left .left_btn p:nth-child(2){float: right; border-color:#0b9e9b; background:#0b9ebb;}
+    .left_over{position: absolute; left:0; top:-10px;}
+    .left_over_txt{width:105px;height:77px;box-sizing:border-box;background:#da3f31;text-align: left; 
+    padding:10px 0 0 12px; color:white;} 
+    .left_over_txt h4{font-size:16px; line-height: 20px;}
+    .left_over_base{width:0; height:0; border-top:19px solid #da3f31; border-right: 53px solid transparent;
+    border-bottom:19px solid transparent; border-left:53px solid #da3f31; }
+    .curation_right{color:white; }
+    .curation_right h3{font-size:22px; font-weight: normal; margin-bottom:10px;}
+    .curation_right h2{font-size:32px; font-weight: normal; }
+    .curation_right hr{width:100%; height:1px; margin:50px 0 30px;background:rgba(255,255,255,0.5);}
+    .curation_right>p{margin-bottom:20px; line-height:20px;} 
+    .curation_poster{display: flex; justify-content: space-between; margin-top:70px 0 30px;}
+    .curation_poster li{position: relative;}
+    .curation_poster_img{border-radius:5px;overflow: hidden; margin-bottom:6px;}
+    .curation_poster_txt{text-align: center;}
+    .curation_poster_over{position: absolute;top:-4px;left:10px;}
+    .curation_poster_over>p:first-child{width:30px; height:30px;font-size: 20px; text-align: center; line-height:30px;}
+    .f_color{background-color:#da3f31;}
+    .c_color{background-color:#32627f;}
+    .curation_poster_over>p:last-child{width:0; height:0; border-top:4px solid #da3f31; border-bottom:4px solid transparent; 
+    border-right:15px solid transparent; border-left: 15px solid #da3f31;}
+    .curation_poster_over>p:last-child.c_border{border-top-color:#32627f;border-left-color:#32627f;}
+  </style>
 </head>
 <body>
-    <!-- skip -->
-    <div class="skip clearfix">
-        <a href="#section">본문 바로가기</a>
-        <a href="#footer">푸터 바로가기</a>
+  <!-- skip -->
+  <div class="skip">
+    <a href="#section">본문 바로가기</a>
+    <a href="#footer">푸터 바로가기</a>
+  </div>
+  <div class="git_hub">
+    <p>깃허브로 오세요</p>
+  </div>
+
+  <!-- login form -->
+  <div class="login_form">
+    <div class="content">
+      <div class="login_tit clearfix">
+        <p>로그인</p>
+        <img src="images/close.png" alt="닫기" id="close">
+      </div>
+      <form>
+        <input class="id_pass" type="text" placeholder="아이디">
+        <input class="id_pass" type="password" placeholder="비밀번호">
+        <input type="checkbox" id="save_id">
+        <label for="save_id">아이디 저장</label>
+        <input type="button" value="로그인">
+      </form>
+      <ul class="login_menu">
+        <li>
+          <a href="#">ID/PW찾기</a>
+        </li>
+        <li></li>
+        <li>
+          <a href="#">회원가입</a>
+        </li>
+        <li></li>
+        <li>
+          <a href="#">비회원 예매</a>
+        </li>
+      </ul>
+      <ul class="sns_login">
+        <li>
+          <a href="#">
+            <img src="images/ico-facebook.png" alt="facebook" title="페이스북 로그인">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/ico-naver.png" alt="naver" title="네이버 로그인">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/ico-kakao.png" alt="kakao" title="카카오 로그인">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/ico-payco.png" alt="payco" title="페이코 로그인">
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="git_hub">
-        <p>이것은 예제</p>
+  </div>
+
+  <!-- wrap -->
+  <div class="wrap">
+    <!-- banner -->
+    <div class="banner">
+      <div class="banner01">
+        <img src="images/banner01.jpg" alt="banner01">
+        <div class="close">X</div>
+      </div>
+      <div class="banner02">
+        <img src="images/banner02.jpg" alt="banner02">
+        <div class="close">X</div>
+      </div>
     </div>
-    <!-- login form -->
-    <div class="login_form">
+    <!-- pop_up -->
+    <div class="pop_up">
+      <h3>예방 수칙 안내</h3>
+      <p>
+        코로나바이러스감염증 - 19 예방을 위한<br>
+        <strong>국가 지침 발표</strong><br>
+        중앙방역대책본부·중앙사고수습본부
+      </p>
+      <hr>
+      <p>다중이용시설을 대상으로 사업장 집중관리 지침이 적용 됩니다.</p>
+      <ol>
+        <li>극장 내 직원을 통해 발열 체크와 이용자 명부를 작성해주시기 바랍니다.</li>
+        <li>상영관 입장 시 마스크를 착용해주시기 바랍니다.</li>
+        <li>마스크 미착용 시 영화관람에 제한이 될 수 있습니다.</li>
+      </ol>
+      <p>
+        메가박스는 안전한 관람 환경을 제공하기 위해 항상 노력하겠습니다.<br>
+        감사합니다.
+      </p>
+      <form>
+        <input type="checkbox" id="day3">
+        <label for="day3">3일간 보지 않기</label>
+        <input type="checkbox" id="allday">
+        <label for="allday">다시 보지 않기</label>
+        <input type="button" value="X" id="close_btn">
+      </form>
+    </div>
+    <!-- header -->
+    <header class="header">
+      <div class="container">
         <div class="content">
-            <div class="login_tit clearfix">
-                <p>로그인</p>
-                <img src="images/close.png" alt="닫기" id="close"> 
-            </div>
-            <form>
-                <input class="id_pass" type="text" placeholder="아이디">
-                <input class="id_pass" type="password" placeholder="비밀번호">    
-                <input type="checkbox" id="save_id">
-                <label for="save_id">아이디 저장</label>
-                <input type="button" value="로그인">
-            </form>
-            <ul class="login_menu">
-                <li><a href="#">ID/PW찾기</a></li>
-                <li></li>
-                <li><a href="#">회원가입</a></li>
-                <li></li>
-                <li><a href="#">비회원 예매확인</a></li>
+          <nav class="nav01">
+            <ul class="top_nav">
+              <li><a href="#" title="VIP LOUNGE">VIP LOUNGE</a></li>
+              <li><a href="#" title="멤버십">멤버십</a></li>
+              <li><a href="#" title="고객센터">고객센터</a></li>
             </ul>
-            <ul class="sns_login">
-                <li><a href="#"><img src="images/ico-facebook.png" alt="facebook" title="페이스북 로그인"></a></li>
-                <li><a href="#"><img src="images/ico-kakao.png" alt="kakao" title="카카오 로그인"></a></li>
-                <li><a href="#"><img src="images/ico-naver.png" alt="naver" title="네이버 로그인"></a></li>
-                <li><a href="#"><img src="images/ico-payco.png" alt="payco" title="페이코 로그인"></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="wrap">
-        <!-- banner -->
-        <div class="banner ">
-            <div class="banner01">
-                <img src="images/ad01.jpg" alt="ad01">
-                <div class="close">X</div>
-            </div>
-            <div class="banner02">
-                <img src="images/ad02.jpg" alt="ad02">
-                <div class="close">X</div>
-            </div>
-        </div>
-        <!-- pop_up -->
-        <div class="pop_up">
-            <h3>예방 수칙 안내</h3>
-            <p>
-                코로나바이러스감염증- 19예방을 위한<br>
-                <strong> 국가 지침 발표</strong><br>
-                중앙방역대책본부 · 중앙사고수습본부
-            </p>
-            <hr>
-            <p>다중이용시설을 대상으로 사업장 집중관리 지침이 적용 됩니다.</p>
-            <ol>
-                <li>극장 내 직원을 통해 발열 체크와 이용자 명부를 작성해주시기 바랍니다.</li>
-                <li>상영관 입장 시 마스크를 착용해주시기 바랍니다.</li>
-                <li>마스크 미착용 시 영화관람에 제한이 될 수 있습니다.</li>
-            </ol>
-                <p>
-                    메가박스는 안전한 관람 환경을 제공하기 위해 항상 노력하겠습니다.<br>
-                    감사합니다. 
-                </p>
-            <form>
-                <input type="checkbox" id="day3">
-                <label for="day3">3일간 보지 않기</label>
-                <input type="checkbox" id="allday">
-                <label for="allday">다시 보지 않기</label>
-                <input type="button" value="X" id="close_btn">
-            </form>
-        </div>
-        <!-- header -->
-        <header class="header">
-            <div class="container">
-                <div class="content">
-                    <div class="nav01">
-                        <ul class="top_nav">
-                            <li><a href="#" title="VIP LOUNGE">VIP LOUNGE</a></li>
-                            <li><a href="#" title="멤버십">멤버십</a></li>
-                            <li><a href="#" title="고객센터">고객센터</a></li>
-                        </ul>
-                        <ul class="bottom_nav">
-                            <li>
-                                <img src="images/hamburger01.png" alt="토글메뉴" title="사이트맵" id="sitemap_btn">
-                                <div class="sitemap">
-                                    <div class="container">
-                                        <div class="content">
-                                            <h2>SITEMAP</h2>
-                                            <ul class="sitemap_menu">
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">영화</li>
-                                                        <li><a href="#">전체영화</a></li>
-                                                        <li><a href="#">큐레이션</a></li>
-                                                        <li><a href="#">영화제</a></li>
-                                                        <li><a href="#">무비포스트</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">예매</li>
-                                                        <li><a href="#">빠른예매</a></li>
-                                                        <li><a href="#">상영시간표</a></li>
-                                                        <li><a href="#">더 부티크 프라이빗 예매</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">극장</li>
-                                                        <li><a href="#">전체극장</a></li>
-                                                        <li><a href="#">특별관</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">이벤트</li>
-                                                        <li><a href="#">진행중 이벤트</a></li>
-                                                        <li><a href="#">지난 이벤트</a></li>
-                                                        <li><a href="#">당첨자발표</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">스토어</li>
-                                                        <li><a href="#">새로운 상품</a></li>
-                                                        <li><a href="#">메가티켓</a></li>
-                                                        <li><a href="#">메가찬스</a></li>
-                                                        <li><a href="#">팝콘/음료/굿즈</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">나의 메가박스</li>
-                                                        <li><a href="#">나의 메가박스 홈</a></li>
-                                                        <li><a href="#">예매/구매내역</a></li>
-                                                        <li><a href="#">영화관람권</a></li>
-                                                        <li><a href="#">스토어교환권</a></li>
-                                                        <li><a href="#">할인/제휴쿠폰</a></li>
-                                                        <li><a href="#">멤버십포인트</a></li>
-                                                        <li><a href="#">나의 무비스토리</a></li>
-                                                        <li><a href="#">나의 이벤트 응모내역</a></li>
-                                                        <li><a href="#">자주쓰는 할인 카드</a></li>
-                                                        <li><a href="#">회원정보</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">혜택</li>
-                                                        <li><a href="#">멤버십 안내</a></li>
-                                                        <li><a href="#">VIP LOUNGE</a></li>
-                                                        <li><a href="#">제휴/할인</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">고객센터</li>
-                                                        <li><a href="#">고객센터 홈</a></li>
-                                                        <li><a href="#">자주묻는질문</a></li>
-                                                        <li><a href="#">공지사항</a></li>
-                                                        <li><a href="#">1:1문의</a></li>
-                                                        <li><a href="#">단체/대관문의</a></li>
-                                                        <li><a href="#">분실물문의</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">회사소개</li>
-                                                        <li><a href="#">메가박스소개</a></li>
-                                                        <li><a href="#">사회공헌</a></li>
-                                                        <li><a href="#">홍보자료</a></li>
-                                                        <li><a href="#">제휴/부대사업문의</a></li>
-                                                        <li><a href="#">온라인제보센터</a></li>
-                                                        <li><a href="#">IR자료</a></li>
-                                                        <li><a href="#">인재채용</a></li>
-                                                        <li><a href="#">윤리경영</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <ul>
-                                                        <li class="genre_tit">이용정책</li>
-                                                        <li><a href="#">이용약관</a></li>
-                                                        <li><a href="#">개인정보처리방침</a></li>
-                                                        <li><a href="#"></a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="#" title="검색" class="border_none"><img src="images/search.png" alt="검색"></a></li>
-                            <li>
-                                <a href="#" title="영화" >영화</a>
-                                <ul class="suv_nav" id="movie_sub">
-                                    <li><a href="#">전체영화</a></li>
-                                    <li><a href="#">큐레이션</a></li>
-                                    <li><a href="#">무비포스트</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" title="예매">예매</a>
-                                <ul class="suv_nav" id="tiketing_sub">
-                                    <li><a href="#">빠른예매</a></li>
-                                    <li><a href="#">상영시간표</a></li>
-                                    <li><a href="#">더 부티크 프라이빗 예매</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" title="극장">극장</a>
-                                <ul class="suv_nav" id="theater_sub">
-                                    <li><a href="#">전체극장</a></li>
-                                    <li><a href="#">특별관</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+            <ul class="bottom_nav">
+              <li>
+                <img src="images/hamburger.png" alt="토글메뉴" title="사이트맵" id="sitemap_btn">
+                <div class="sitemap">
+                  <div class="container">
+                    <div class="content">
+                      <h2>SITEMAP</h2>
+                      <ul class="sitemap_menu">
+                        <li>
+                          <ul>
+                            <li class="genre_tit">영화</li>
+                            <li><a href="#">전체영화</a></li>
+                            <li><a href="#">큐레이션</a></li>
+                            <li><a href="#">영화제</a></li>
+                            <li><a href="#">무비포스트</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">예매</li>
+                            <li><a href="#">빠른예매</a></li>
+                            <li><a href="#">상영시간표</a></li>
+                            <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">극장</li>
+                            <li><a href="#">전체극장</a></li>
+                            <li><a href="#">특별관</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">이벤트</li>
+                            <li><a href="#">진행중 이벤트</a></li>
+                            <li><a href="#">지난 이벤트</a></li>
+                            <li><a href="#">담첨자발표</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">스토어</li>
+                            <li><a href="#">새로운 상품</a></li>
+                            <li><a href="#">메가티켓</a></li>
+                            <li><a href="#">팝콘/음료/굿즈</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">나의 메가박스</li>
+                            <li><a href="#">나의 메가박스 홈</a></li>
+                            <li><a href="#">예매/구매내역</a></li>
+                            <li><a href="#">영화관람권</a></li>
+                            <li><a href="#">스토어교환권</a></li>
+                            <li><a href="#">할인/제휴쿠폰</a></li>
+                            <li><a href="#">멤버십포인트</a></li>
+                            <li><a href="#">나의 무비스토리</a></li>
+                            <li><a href="#">나의 이벤트 응모내역</a></li>
+                            <li><a href="#">나의 문의내역</a></li>
+                            <li><a href="#">자주쓰는 할인 카드</a></li>
+                            <li><a href="#">회원정보</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">혜택</li>
+                            <li><a href="#">멤버십 안내</a></li>
+                            <li><a href="#">VIP LOUNGE</a></li>
+                            <li><a href="#">제휴/할인</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">고객센터</li>
+                            <li><a href="#">고객센터 홈</a></li>
+                            <li><a href="#">자주묻는질문</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">1:1문의</a></li>
+                            <li><a href="#">단체/대관문의</a></li>
+                            <li><a href="#">분실물문의</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">회사소개</li>
+                            <li><a href="#">메가박스소개</a></li>
+                            <li><a href="#">사회공헌</a></li>
+                            <li><a href="#">홍보자료</a></li>
+                            <li><a href="#">제휴/부대사업문의</a></li>
+                            <li><a href="#">온라인제보센터</a></li>
+                            <li><a href="#">IR자료</a></li>
+                            <li><a href="#">인재채용</a></li>
+                            <li><a href="#">윤리경영</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li class="genre_tit">이용정책</li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">스크린수배정에관한기준</a></li>
+                          </ul>
+                        </li>
+                      </ul>
                     </div>
-                    <div class="logo"><a href="index.html" title="MEGABOX 메인으로 가기"><img src="images/main_logo_white.png" alt="megabox"></a></div>
-                    <div class="nav02">
-                        <ul class="top_nav">
-                            <li><a href="#" title="로그인" id="login_btn">로그인</a></li>
-                            <li><a href="#" title="회원가입">회원가입</a></li>
-                            <li><a href="#" title="빠른예매">빠른예매</a></li>
-                        </ul>
-                        <ul class="bottom_nav">
-                            <li>
-                                <a href="#" title="이벤트">이벤트</a>
-                                <ul class="suv_nav" id="event_sub">
-                                    <li><a href="#">진행중 이벤트</a></li>
-                                    <li><a href="#">지난 이벤트</a></li>
-                                    <li><a href="#">당첨자발표</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" title="스토어" class="border_none">스토어</a>
-                            </li>
-                            <li>
-                                <a href="#" title="혜택">혜택</a>
-                                <ul class="suv_nav" id="member_sub">
-                                    <li><a href="#">메가박스 멤버십</a></li>
-                                    <li><a href="#">제휴/할인</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" title="상영시간표" class="border_none"><img src="images/schedule.png" alt="상영시간표" id="schedule"></a></li>
-                            <li><a href="#" title="나의 메가박스" class="border_none"><img src="images/mymega.png" alt="나의 메가박스"></a></li>
-                        </ul>
-                    </div>
+                  </div>
                 </div>
+              </li>
+              <li>
+                <a href="#" title="검색" class="border_none"><img src="images/search.png" alt="검색"></a>
+              </li>
+              <li>
+                <a href="#" title="영화">영화</a>
+                <ul class="sub_nav" id="movie_sub">
+                  <li><a href="#">전체영화</a></li>
+                  <li><a href="#">큐레이션</a></li>
+                  <li><a href="#">무비포스트</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" title="예매">예매</a>
+                <ul class="sub_nav" id="ticket_sub">
+                  <li><a href="#">빠른예매</a></li>
+                  <li><a href="#">상영시간표</a></li>
+                  <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" title="극장">극장</a>
+                <ul class="sub_nav" id="theater_sub">
+                  <li><a href="#">전체극장</a></li>
+                  <li><a href="#">특별관</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div class="logo">
+            <img src="images/white-logo.png" alt="화이트로고">
+          </div>
+          <nav class="nav02">
+            <ul class="top_nav">
+              <li><a href="#" title="로그인" id="login_btn">로그인</a></li>
+              <li><a href="#" title="회원가입">회원가입</a></li>
+              <li><a href="#" title="빠른예매">빠른예매</a></li>
+            </ul>
+            <ul class="bottom_nav">
+              <li>
+                <a href="#" title="이벤트">이벤트</a>
+                <ul class="sub_nav" id="event_sub">
+                  <li><a href="#">진행중 이벤트</a></li>
+                  <li><a href="#">지난 이벤트</a></li>
+                  <li><a href="#">당첨자발표</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" title="스토어" class="border_none">스토어</a>
+              </li>
+              <li>
+                <a href="#" title="혜택">혜택</a>
+                <ul class="sub_nav" id="bonus_sub">
+                  <li><a href="#">메가박스 멤버십</a></li>
+                  <li><a href="#">제휴 / 할인</a></li>
+                </ul>
+              </li>
+              <li><a href="#" title="상영시간표" class="border_none"><img src="images/schedule.png" alt="상영시간표" id="schedule"></a></li>
+              <li><a href="#" title="나의 메가박스" class="border_none"><img src="images/mymega.png" alt="나의 메가박스"></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="section">
+      <div class="container">
+        <article class="alticle movie_chart">
+          <div class="content">
+            <h2>
+              <a href="#">박스오피스</a>
+            </h2>
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide slide01">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster01.jpg" alt="poster01">
+                      <p class="poster_number">1</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 9.1</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 601</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide02">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster02.jpg" alt="poster02">
+                      <p class="poster_number">2</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 9.3</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 701</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide03">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster03.jpg" alt="poster03">
+                      <p class="poster_number">3</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 8.9</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 503</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide04">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster04.jpg" alt="poster04">
+                      <p class="poster_number">4</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 8.9</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 568</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide05">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster05.jpg" alt="poster05">
+                      <p class="poster_number">5</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 6.8</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 124</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide06">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster06.jpg" alt="poster06">
+                      <p class="poster_number">6</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 9.3</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 912</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide07">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster07.jpg" alt="poster07">
+                      <p class="poster_number">7</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 8.8</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 103</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide08">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster08.jpg" alt="poster08">
+                      <p class="poster_number">8</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 8.7</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 818</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide09">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster09.jpg" alt="poster09">
+                      <p class="poster_number">9</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 9.1</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 601</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide10">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster10.jpg" alt="poster10">
+                      <p class="poster_number">10</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 8.4</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 643</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide11">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster11.jpg" alt="poster11">
+                      <p class="poster_number">11</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 7.9</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 427</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide slide12">
+                  <ul>
+                    <li class="poster">
+                      <img src="images/poster12.jpg" alt="poster12">
+                      <p class="poster_number">12</p>
+                      <div class="poster_txt">
+                        <p>
+                          팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
+                          세상의 모든 음악이 쏟아진다!<br>
+                          노래와 춤을 즐기며 평화로운 나날을 보내던 팝 트롤 '파피'와 '브랜치' 그리고 친구들.<br>
+                          어느 날 ‘파피’는 자신들 외에도
+                        </p>
+                        <p>관람평 <span> 8.5</span></p>
+                      </div>
+                      
+                    </li>
+                    <li class="poster_btn clearfix">
+                      <div><span>하트</span> 447</div>
+                      <div>예매</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-        </header>
-        <section class="section">
-            <div class="container">
-                <article class="ariticle movie_chart">
-                        <div class="content">
-                            <h2>
-                                <a href="#">박스오피스</a>
-                            </h2>
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number">1</p>
-                                            <img src="images/poster01.jpg" alt="poster01">
-                                            <div class="poster_txt">
-                                                <p>팝, 록, 클래식, 컨트리, 펑크, 테크노, K-POP까지<br>
-                                                    세상의 모든 음악이 쏟아진다!<br>
-                                                    노래와 춤을 즐기며 평화로운 나<br>
-                                                    날을 보내던 팝 트롤 ‘파피’와 ‘브<br>
-                                                    랜치’ 그리고 친구들.<br>
-                                                    어느 날 ‘파피’는 자신들 외에도
-                                                </p>
-                                                <p>관람평 <span>9.1</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 601</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide02">2</p>
-                                            <img src="images/poster02.jpg" alt="poster02">
-                                            <div class="poster_txt">
-                                                <p>“폐 끼치고 싶진 않았어요”
-                                                    전원백수로 살 길 막막하지만 사이는 좋은 기택(송강호) 가족.
-                                                    장남 기우(최우식)에게 명문대생 친구가 연결시켜 준 고액 과외 자리는
-                                                </p>
-                                                <p>관람평 <span>9.4</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 282</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide03">3</p>
-                                            <img src="images/poster03.jpg" alt="poster03">
-                                            <div class="poster_txt">
-                                                <p>김수환 추기경의 어린 시절 이야기
-                                                    “내 마음밭 특별한 씨앗을 키운 건, 가족의 사랑이었다”
-                                                    1928년 일제강점기, 세상에서 가장 사랑하는 엄마와 아픈 아버지를 위해
-                                                    신부보다 인삼장수가 되고 싶은 7살 소년 수환은
-                                                </p>
-                                                <p>관람평 <span>8.4</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 70</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide04">4</p>
-                                            <img src="images/poster04.jpg" alt="poster04">
-                                            <div class="poster_txt">
-                                                <p>어렸을 때부터 함께 경극을 해온 ‘두지’(장국영)와 ‘시투’(장풍의).
-                                                    세상에 둘도 없는 절친한 아우와 형이지만,
-                                                    ‘두지’는 남몰래 ‘시투’에 대한 마음을 품고 있다.
-                                                </p>
-                                                <p>관람평 <span>9.6</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 781</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide05">5</p>
-                                            <img src="images/poster05.jpg" alt="poster05">
-                                            <div class="poster_txt">
-                                                <p>인피니티 워 이후 절반만 살아남은 지구
-                                                    마지막 희망이 된 어벤져스
-                                                    먼저 떠난 그들을 위해 모든 것을 걸었다!
-                                                </p>
-                                                <p>관람평 <span>9.3</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 22K</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide06">6</p>
-                                            <img src="images/poster06.jpg" alt="poster06">
-                                            <div class="poster_txt">
-                                                <p>흥행 로코 제작진의 2020 본격 첫사랑 로코
-                                                    우리의 시간은 지금부터가 진짜야!
-                                                    
-                                                    모범생 ‘팡위커’와 유독 그에게만 빛나 보이는 ‘린린’이
-                                                </p>
-                                                <p>관람평 <span>7.3</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 263</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide07">7</p>
-                                            <img src="images/poster07.jpg" alt="poster07">
-                                            <div class="poster_txt">
-                                                <p>황홀한 사랑, 순수한 희망, 격렬한 열정…
-                                                    이 곳에서 모든 감정이 폭발한다!
-                                                    꿈을 꾸는 사람들을 위한 별들의 도시 ‘라라랜드’. 재즈 피아니스트 ‘세바스찬’(라이언 고슬링)과 배우 지망생 ‘미아’(엠마 스톤), 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.
-                                                </p>
-                                                <p>관람평 <span>9.5</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 1.2K</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide08">8</p>
-                                            <img src="images/poster08.jpg" alt="poster08">
-                                            <div class="poster_txt">
-                                                <p>두 명의 병사, 하나의 미션!
-                                                    그들이 싸워야 할 것은 적이 아니라 시간이었다!
-                                                    
-                                                    제1차 세계대전이 한창인 1917년.
-                                                </p>
-                                                <p>관람평 <span>8.9</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 601</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide09">9</p>
-                                            <img src="images/poster09.jpg" alt="poster09">
-                                            <div class="poster_txt">
-                                                <p>동생을 맡기기 위해 호텔 레이크를 찾아간 ‘유미’
-                                                    두 자매를 가족처럼 반기는 호텔 레이크 사장 ‘경선’
-                                                    이상한 이야기만 늘어 놓는 유일한 메이드 ‘예린’
-                                                </p>
-                                                <p>관람평 <span>6.5</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 106</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide10">10</p>
-                                            <img src="images/poster10.jpg" alt="poster10">
-                                            <div class="poster_txt">
-                                                <p>새로운 조합을 이룬 어벤져스,
-                                                    역대 최강 빌런 타노스에 맞서 세계의 운명이 걸린
-                                                    인피니티 스톤을 향한 무한 대결이 펼쳐진다!
-                                                </p>
-                                                <p>관람평 <span>9.4</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 4k</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide11">11</p>
-                                            <img src="images/poster11.jpg" alt="poster11">
-                                            <div class="poster_txt">
-                                                <p>모든 것을 마주하게 된 그날의 결혼식, 그리고 운명적 만남!
-                                                    인도에서 아동 재단을 운영 중인 ‘이자벨’(미셸 윌리엄스)은 세계적 미디어 그룹 대표 ‘테레사’(줄리안 무어)로부터 거액의 후원을 제안받는다. 단, ‘이자벨’이 반드시 뉴욕으로 와야 한다는 특별한 조건이 따라붙고, 어쩔 수 없이 뉴욕으로 향한 ‘이자벨’은 ‘테레사’의 딸 ‘그레이스’(애비 퀸)의 결혼식에 초대받는다. 그리고 그 결혼식에서 20년 전 가장 소중했던 기억과 마주하게 된 ‘이자벨’은 다시 한번 선택의 기로에 서게 되는데…
-                                                </p>
-                                                <p>관람평 <span>8.2</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 173</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide">
-                                    <ul>
-                                        <li class="poster">
-                                            <p class="poster_number slide12">12</p>
-                                            <img src="images/poster12.jpg" alt="poster12">
-                                            <div class="poster_txt">
-                                                <p>세월호는 왜 침몰했는가? 다큐팀은 <그날, 바다>에 담지 못했던 조작 의혹을 새로 출범한 특별조사위원회에 전달하기 위해 자료를 정리하다가, 상상도 못한 데이터 조작의 증거들을 발견한다.
-                                                </p>
-                                                <p>관람평 <span>9.2</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="poster_btn clearfix">
-                                            <div><span>하트</span> 184</div>
-                                            <div>예매</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                </div>
-                        </div>
-                        <ul class="quick_movie_menu">
-                            <li>
-                                <input type="text" placeholder="영화명을 입력해주세요">
-                            </li>
-                            <li>
-                                <a href="#">상영시간표</a>
-                            </li>
-                            <li>
-                                <a href="#">박스오피스</a>
-                            </li>
-                            <li>
-                                <a href="#">빠른예매</a>
-                            </li>
-                        </ul>
-                        <div class="mouse_ani">
-                            <img src="images/ico-mouse.png" alt="mouse">
-                        </div>
-                        </div>
-                </article>
-                <article class="article bonus">
-                    
-                </article>
+            <ul class="quick_movie_menu">
+              <li>
+                <input type="text" placeholder="영화명을 입력해주세요">
+              </li>
+              <li>
+                <a href="#">상영시간표</a>
+              </li>
+              <li>
+                <a href="#">박스오피스</a>
+              </li>
+              <li>
+                <a href="#">빠른예매</a>
+              </li>
+            </ul>
+            <div class="mouse_ani">
+              <img src="images/ico-mouse.png" alt="mouse">
             </div>
-        </section>
-        <footer class="footer">
-            <div class="container"></div>
-        </footer>
-    </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="bonus">
+      <div class="container">
+        <article class="article">
+          <h3>혜택</h3>
+          <div class="content grid_par">
+            <div id="grid_child01">
+              <div class="img00 active">
+                <img src="images/bonus00.jpg" alt="보너스00">
+              </div>
+              <div class="img01">
+                <img src="images/bonus01.jpg" alt="보너스01">
+              </div>
+              <div class="img02">
+                <img src="images/bonus00.jpg" alt="보너스02">
+              </div>
+              <div class="img03">
+                <img src="images/bonus03.jpg" alt="보너스03">
+              </div>
+              <ul>
+                <li id="img_bar">
+                  <div class="img_bar_par">
+                    <div class="active">1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                  </div>
+                </li>
+                <li id="img_btn">
+                  <span id="prev">&lt&nbsp&nbsp</span>
+                  <span id="next"> &gt</span>
+                </li>
+                <li id="img_num">
+                  <span id=page>1</span>
+                  <span>&nbsp/&nbsp</span>
+                  <span id="pages">4</span>
+                </li>
+              </ul>
+              
+            </div>
+            <div id="grid_child02">
+              <div class="img00 active">
+                <img src="images/bonus_right00.jpg" alt="보너스00">
+              </div>
+              <div class="img01">
+                <img src="images/bonus_right01.jpg" alt="보너스01">
+              </div>
+              <div class="img02">
+                <img src="images/bonus_right02.jpg" alt="보너스02">
+              </div>
+              <div class="img03">
+                <img src="images/bonus_right03.jpg" alt="보너스03">
+              </div>
+            </div>
+            <div id="grid_child03">
+              <img src="images/bonus_banner00.jpg" alt="보너스베너00">
+            </div>
+            <div id="grid_child04">
+              <img src="images/bonus_banner01.jpg" alt="보너스베너01">
+            </div>
+            <div id="grid_child05">
+              <img src="images/bonus_banner02.jpg" alt="보너스베너02">
+            </div>
+          </div>
+        </article>
+        <article class="article bonus_quick_menu">
+          <ul class="content ico_par clearfix">
+          <li>
+            <a href="#">
+              <img src="images/ico-bonus00.png" alt="03">
+              <p>VIP LOUNGE</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/ico-bonus01.png" alt="03">
+              <p>멤버십</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/ico-bonus02.png" alt="03">
+              <p>할인카드 안내</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/ico-bonus03.png" alt="03">
+              <p>이벤트</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/ico-bonus04.png" alt="03">
+              <p>스토어</p>
+            </a>
+          </li>
+        </ul>
+        </article>
+        <div class="article grand_open">
+          <div class="content clearfix">
+            <div class="grand_txt">
+              <p>LIFE THEATER MEGABOX</p>
+              <h3>GRAND<br>
+                OPENING</h3>
+                <hr>
+            </div>
+            <div class="grand_img">
+              <div>
+                <img src="images/bg-theater-new.jpg" alt="그랜드오픈극장">
+              </div>
+              <div>
+                화이트
+              </div>
+              <div>
+                <p class="open_tit">신규오픈</p>
+                <p class="open_sec1">경기</p>
+                <p class="open_sec2">용인기흥</p>
+                <p class="open_date">2020.05.14</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="curation">
+      <div class="container">
+        <div class="content">
+          <div class="tit">
+            <h2>큐레이션</h2>
+            <p><span>큐레이션 더보기</span><span>+</span></p>
+          </div>
+          <div class="curation_content">
+            <div class="curation_left">
+              <div class="left_img">
+                <img src="images/poster07.jpg" alt="lala">
+              </div>
+              <div class="left_btn clearfix">
+                <p class="view">상세보기</p>
+                <p class="ticket">예매</p>
+              </div>
+              <div class="left_over">
+                <div class="left_over_txt">
+                  <h4>
+                    MEGABOX<br>
+                    FILM<br>
+                    SOCIETY
+                  </h4>
+                </div>
+                <div class="left_over_base"></div>
+              </div>
+            </div>
+            <div class="curation_right">
+              <h3>#필름소사이어티</h3>
+              <h2>라라랜드</h2>
+              <hr>
+              <p>황홀한 사랑, 순수한 희망, 격렬한 열정…</p>
+              <p>이 곳에서 모든 감정이 폭발한다!<br>
+                꿈을 꾸는 사람들을 위한 별들의 도시 ‘라라랜드’. 재즈 피아니스트 ‘세바스찬’(라이언 고슬링)과 배우 지망생 ‘미아’(엠마 스톤), 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.
+              </p>
+              <ul class="curation_poster">
+                <li>
+                  <div class="curation_poster_img">
+                    <img src="images/curation_poster00.jpg" alt="img00">
+                  </div>
+                  <div class="curation_poster_txt">
+                    <p>레이니 데이 인 뉴욕</p>
+                  </div>
+                  <div class="curation_poster_over">
+                    <p class="f_color">F</p>
+                    <p class="f_color"></p>
+                  </div>
+                </li>
+                <li>
+                  <div class="curation_poster_img">
+                    <img src="images/curation_poster01.jpg" alt="img01">
+                  </div>
+                  <div class="curation_poster_txt">
+                    <p>패황별희 디 오리지널</p>
+                  </div>
+                  <div class="curation_poster_over">
+                    <p class="f_color">F</p>
+                    <p class="f_color"></p>
+                  </div>
+                </li>
+                <li>
+                  <div class="curation_poster_img">
+                    <img src="images/curation_poster02.jpg" alt="img02">
+                  </div>
+                  <div class="curation_poster_txt">
+                    <p>
+                      [오페라] 리골레토
+                    </p>
+                  </div>
+                  <div class="curation_poster_over">
+                    <p class="c_color">C</p>
+                    <p class="c_border"></p>
+                  </div>
+                </li>
+                <li>
+                  <div class="curation_poster_img">
+                    <img src="images/curation_poster03.jpg" alt="img03">
+                  </div>
+                  <div class="curation_poster_txt">
+                    <p>
+                      [오페라] 마담 버터플라이
+                    </p>
+                  </div>
+                  <div class="curation_poster_over">
+                    <p class="c_color">C</p>
+                    <p class="c_border"></p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+  </div>
+
 </body>
 </html>
